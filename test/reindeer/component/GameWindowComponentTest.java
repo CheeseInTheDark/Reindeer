@@ -21,7 +21,7 @@ public class GameWindowComponentTest
 	@Resource(name="gameWindow")
 	private JFrame gameWindow;
 	
-	@Resource(name="topDownViewContainer")
+	@Resource(name="topDownTrackView")
 	private JPanel topDownView;
 	
 	@Test
@@ -31,9 +31,8 @@ public class GameWindowComponentTest
 	}
 	
 	@Test
-	public void shouldSetWindowSize()
+	public void shouldPackWindow()
 	{
-		assertThat(gameWindow.getWidth(), is(616));
-		assertThat(gameWindow.getHeight(), is(301));
+		assertThat(gameWindow.getContentPane().getSize(), is(topDownView.getPreferredSize()));
 	}
 }

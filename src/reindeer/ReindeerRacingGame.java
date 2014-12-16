@@ -11,7 +11,8 @@ public class ReindeerRacingGame
 	@Resource
 	private JFrame window;
 	
-	public void launch() {
+	public void launch()
+	{
 		window.setVisible(true);
 	}
 }

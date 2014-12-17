@@ -1,11 +1,13 @@
 package reindeer;
 
+import static java.util.Arrays.asList;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -25,8 +27,10 @@ public class TopDownTrackView extends JPanel
 	private static final long serialVersionUID = 6096019962582538858L;
 	
 	@Autowired
-	public void configureTopDownTrackView()
+	public void configureTopDownTrackView(Reindeer reindeer)
 	{
+		reindeers = asList(reindeer);
+		
 		Dimension preferredSize = new Dimension(trackImage.getWidth(), trackImage.getHeight());
 		setPreferredSize(preferredSize);
 	}

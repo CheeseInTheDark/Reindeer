@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.swing.JPanel;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -50,25 +49,10 @@ public class TopDownTrackViewComponentTest
 	@Mock
 	private Graphics canvas;
 	
-	private List<Reindeer> reindeers = new ArrayList<Reindeer>();
-	
-	private RaceTrackLocation location = new RaceTrackLocation();
-	
 	@Before
 	public void setup()
 	{
 		MockitoAnnotations.initMocks(this);
-		
-		createReindeer();
-		
-		underTest.setReindeer(reindeers);
-	}
-	
-	private void createReindeer()
-	{
-		Reindeer reindeer = new Reindeer(reindeerAppearance, location, topDownMapping);
-		
-		reindeers.add(reindeer);
 	}
 	
 	@Test
@@ -80,7 +64,7 @@ public class TopDownTrackViewComponentTest
 	}
 	
 	@Test
-	public void shouldPaint()
+	public void shouldPaintRaceTrack()
 	{
 		underTest.paint(canvas);
 		
@@ -92,8 +76,10 @@ public class TopDownTrackViewComponentTest
 	{
 		underTest.paint(canvas);
 		
-		Dimension expectedLocation = location.mapTo(topDownMapping);
+		verify(canvas).drawImage(eq(reindeerAppearance), anyInt(), anyInt(), anyInt(), anyInt(), eq(null)); 
+
+//		Dimension expectedLocation = location.mapTo(topDownMapping);
 		
-		verify(canvas).drawImage(reindeerAppearance, expectedLocation.width, expectedLocation.height, reindeerAppearance.getWidth(), reindeerAppearance.getHeight(), null);
+//		expectedLocation.width, expectedLocation.height, reindeerAppearance.getWidth(), reindeerAppearance.getHeight(), null);
 	}
 }

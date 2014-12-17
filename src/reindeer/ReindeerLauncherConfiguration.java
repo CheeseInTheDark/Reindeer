@@ -4,7 +4,6 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.JPanel;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,10 +13,10 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan("reindeer")
 public class ReindeerLauncherConfiguration
 {
-	@Bean(name="topDownMapping")
-	public TrackLocationMapping topDownMapping()
+	@Bean(name="startingLocation")
+	public RaceTrackLocation startingLocation()
 	{
-		return new TopDownMapping();
+		return new RaceTrackLocation();
 	}
 	
 	@Bean(name="trackImage")

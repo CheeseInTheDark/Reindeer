@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -34,5 +35,11 @@ public class GameWindowComponentTest
 	public void shouldPackWindow()
 	{
 		assertThat(gameWindow.getContentPane().getSize(), is(topDownView.getPreferredSize()));
+	}
+	
+	@Test
+	public void shouldExitOnClose()
+	{
+		assertThat(gameWindow.getDefaultCloseOperation(), is(JFrame.EXIT_ON_CLOSE));
 	}
 }

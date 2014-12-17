@@ -20,6 +20,8 @@ public class GameWindow extends JFrame
 	@Autowired
 	public void configureGameWindow()
 	{
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		getContentPane().add(topDownView);
 		getContentPane().setPreferredSize(new Dimension(600, 260));
 		pack();

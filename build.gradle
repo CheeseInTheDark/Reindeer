@@ -22,6 +22,9 @@ dependencies
 
 jar
 {
+	from ('.')
+	include('images/**')
+
     	manifest
 	{
         	attributes 'Main-Class': 'reindeer.ReindeerLauncher'
@@ -29,5 +32,6 @@ jar
 }
 
 sourceSets.main.java.srcDirs = ["src"]
+sourceSets.main.resources.srcDirs = ["images"]
 buildDir = "../bin"
-mainClassName = "reindeer.Reindeer"
+mainClassName = "reindeer.ReindeerLauncher"

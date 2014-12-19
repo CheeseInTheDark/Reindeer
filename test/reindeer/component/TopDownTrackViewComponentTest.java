@@ -40,8 +40,23 @@ public class TopDownTrackViewComponentTest
 	@Resource(name="trackImage")
 	private BufferedImage trackImage;
 	
-	@Resource(name="topDownReindeerAppearance")
-	private BufferedImage reindeerAppearance;
+	@Resource(name="topDownReindeerAppearanceBlue")
+	private BufferedImage reindeerAppearanceBlue;
+	
+	@Resource(name="topDownReindeerAppearanceGreen")
+	private BufferedImage reindeerAppearanceGreen;
+	
+	@Resource(name="topDownReindeerAppearancePink")
+	private BufferedImage reindeerAppearancePink;
+	
+	@Resource(name="topDownReindeerAppearancePurple")
+	private BufferedImage reindeerAppearancePurple;
+	
+	@Resource(name="topDownReindeerAppearanceRed")
+	private BufferedImage reindeerAppearanceRed;
+	
+	@Resource(name="topDownReindeerAppearanceYellow")
+	private BufferedImage reindeerAppearanceYellow;	
 	
 	@Resource(name="topDownMapping")
 	private TrackLocationMapping topDownMapping;
@@ -67,19 +82,27 @@ public class TopDownTrackViewComponentTest
 	public void shouldPaintRaceTrack()
 	{
 		underTest.paint(canvas);
-		
 		verify(canvas).drawImage(eq(trackImage), anyInt(), anyInt(), anyInt(), anyInt(), any(Color.class), eq(null));
 	}
 	
 	@Test
-	public void shouldPaintReindeers()
+	public void shouldPaintBlueReindeers()
 	{
-		underTest.paint(canvas);
-		
-		verify(canvas).drawImage(eq(reindeerAppearance), anyInt(), anyInt(), anyInt(), anyInt(), eq(null)); 
+ 
+ 	underTest.paint(canvas);
+	 	verify(canvas).drawImage(eq(reindeerAppearanceBlue), anyInt(), anyInt(), anyInt(), anyInt(), eq(null)); 
 
-//		Dimension expectedLocation = location.mapTo(topDownMapping);
+// Dimension expectedLocation = location.mapTo(topDownMapping);
 		
-//		expectedLocation.width, expectedLocation.height, reindeerAppearance.getWidth(), reindeerAppearance.getHeight(), null);
+ //	expectedLocation.width, expectedLocation.height, reindeerAppearance.getWidth(), reindeerAppearance.getHeight(), null);
+	}
+	
+	@Test
+	public void shouldMakePinkReindeer25pxWide()
+	{
+		int deerWidth = reindeerAppearancePink.getWidth();
+	    int expectedWidth = 25;
+	
+		assertThat(expectedWidth, is(deerWidth));
 	}
 }

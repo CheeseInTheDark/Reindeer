@@ -25,10 +25,40 @@ public class ReindeerLauncherConfiguration
 		return getImage("RaceTrack.bmp");
 	}
 	
-	@Bean(name="topDownReindeerAppearance")
-	public BufferedImage topDownReindeerAppearance() throws IOException
+	@Bean(name="topDownReindeerAppearanceBlue")
+	public BufferedImage topDownReindeerAppearanceBlue() throws IOException
 	{
-		return getImage("TopDownReindeer.bmp");
+		return getImage("TopDownReindeerBlueSmall.png");
+	}
+	
+	@Bean(name="topDownReindeerAppearanceGreen")
+	public BufferedImage topDownReindeerAppearanceGreen() throws IOException
+	{
+		return getImage("TopDownReindeerGreenSmall.png");
+	}
+	
+	@Bean(name="topDownReindeerAppearancePink")
+	public BufferedImage topDownReindeerAppearancePink() throws IOException
+	{
+		return getImage("TopDownReindeerPinkSmall.png");
+	}
+	
+	@Bean(name="topDownReindeerAppearancePurple")
+	public BufferedImage topDownReindeerAppearancePurple() throws IOException
+	{
+		return getImage("TopDownReindeerPurpleSmall.png");
+	}
+	
+	@Bean(name="topDownReindeerAppearanceRed")
+	public BufferedImage topDownReindeerAppearanceRed() throws IOException
+	{
+		return getImage("TopDownReindeerRedSmall.png");
+	}
+	
+	@Bean(name="topDownReindeerAppearanceYellow")
+	public BufferedImage topDownReindeerAppearanceYellow() throws IOException
+	{
+		return getImage("TopDownReindeerYellowSmall.png");
 	}
 	
 	private BufferedImage getImage(String path) throws IOException

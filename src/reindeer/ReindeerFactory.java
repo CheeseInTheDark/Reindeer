@@ -45,7 +45,7 @@ public class ReindeerFactory
 	@Bean
 	public Reindeer createBlue()
 	{
-		return new Reindeer(appearanceBlue, location, mapping, reindeerNameBlue);
+		return new Reindeer(appearanceBlue, location , mapping, reindeerNameBlue);
 	}
  
 	public Reindeer createGreen()

@@ -30,6 +30,6 @@ public class GameWindow extends JFrame
 	private void setUpTopDownView()
 	{
 		getContentPane().add(topDownView);
-		getContentPane().setPreferredSize(new Dimension(1600, 1260));
+		getContentPane().setPreferredSize(new Dimension(600, 260));
 	}
 }

@@ -17,18 +17,30 @@ public class Reindeer
 	
 	private TrackLocationMapping mapping;
 	
+	private ReindeerName reindeerName;
+	
 	public Reindeer(BufferedImage reindeerAppearance,
-			RaceTrackLocation location, TrackLocationMapping topDownMapping)
+			RaceTrackLocation location, TrackLocationMapping topDownMapping, ReindeerName reindeerName)
+
 	{
 		this.appearance = reindeerAppearance;
 		this.location = location;
 		this.mapping = topDownMapping;
-	}
-
+		this.reindeerName = reindeerName;
+	} 
+	
 	public void drawOn(Graphics canvas)
 	{
 		Dimension mappedLocation = location.mapTo(mapping);
 		
 		renderer.draw(appearance).on(canvas).at(mappedLocation);
+	}
+
+	public ReindeerName getReindeerName() {
+		return reindeerName;
+	}
+
+	public void setReindeerName(ReindeerName reindeerName) {
+		this.reindeerName = reindeerName;
 	}
 }

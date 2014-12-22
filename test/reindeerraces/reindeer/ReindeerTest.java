@@ -24,7 +24,7 @@ import reindeerraces.track.TrackLocationMapping;
 public class ReindeerTest
 {
 	@InjectMocks
-	private Reindeer underTest = new Reindeer(null, null, null);
+	private Reindeer underTest = new Reindeer(null, null, null, null);
 	
 	@Mock
 	private TrackLocationMapping mapping;
@@ -74,5 +74,6 @@ public class ReindeerTest
 		verify(renderer).draw(appearance);
 		verify(rendererNeedingCanvas).on(canvas);
 		verify(rendererNeedingLocation).at(mappedLocation);
+ 
 	}
 }

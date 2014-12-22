@@ -37,7 +37,7 @@ public class TopDownTrackViewComponentTest
 	@Resource(name="trackImage")
 	private BufferedImage trackImage;
 	
-	@Resource(name="topDownReindeerAppearance")
+	@Resource(name="topDownReindeerAppearanceBlue")
 	private BufferedImage reindeerAppearance;
 	
 	@Resource(name="topDownMapping")
@@ -67,7 +67,6 @@ public class TopDownTrackViewComponentTest
 	public void shouldPaintRaceTrack()
 	{
 		underTest.paint(canvas);
-		
 		verify(canvas).drawImage(eq(trackImage), anyInt(), anyInt(), anyInt(), anyInt(), any(Color.class), eq(null));
 	}
 	

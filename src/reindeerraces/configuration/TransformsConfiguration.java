@@ -36,8 +36,8 @@ public class TransformsConfiguration
 		HorizontalComponent horizontalComponent = new HorizontalComponent();
 		VerticalComponent verticalComponent = new VerticalComponent();
 		
-		PolarXTransform xTransform = new PolarXTransform(454, radiusOffset, arcToAngle, horizontalComponent);
-		PolarYTransform yTransform = new PolarYTransform(80, radiusOffset, arcToAngle, verticalComponent);
+		PolarXTransform xTransform = new PolarXTransform(457, radiusOffset, arcToAngle, horizontalComponent);
+		PolarYTransform yTransform = new PolarYTransform(128, radiusOffset, arcToAngle, verticalComponent);
 		
 		return new LocationFunction(xTransform, yTransform);
 	}
@@ -46,7 +46,7 @@ public class TransformsConfiguration
 	public LocationFunction secondStraightFunction()
 	{
 		InvertedTransform xTransform = new InvertedTransform(new TrapezoidalXTransform(453, PI));
-		InvertedTransform yTransform = new InvertedTransform(new TrapezoidalYTransform(51));
+		InvertedTransform yTransform = new InvertedTransform(new TrapezoidalYTransform(78));
 		
 		return new LocationFunction(xTransform, yTransform);
 	}
@@ -55,12 +55,12 @@ public class TransformsConfiguration
 	public LocationFunction secondCurveTopDownFunction()
 	{
 		RadiusOffset radiusOffset = new RadiusOffset(49.5);
-		ArcToAngle arcToAngle = new ArcToAngle(-PI/2);
+		ArcToAngle arcToAngle = new ArcToAngle(PI/2);
 		HorizontalComponent horizontalComponent = new HorizontalComponent();
 		VerticalComponent verticalComponent = new VerticalComponent();
 		
-		InvertedTransform xTransform = new InvertedTransform(new PolarXTransform(141, radiusOffset, arcToAngle, horizontalComponent));
-		InvertedTransform yTransform = new InvertedTransform(new PolarYTransform(177, radiusOffset, arcToAngle, verticalComponent));
+		PolarXTransform xTransform = new PolarXTransform(140, radiusOffset, arcToAngle, horizontalComponent);
+		PolarYTransform yTransform = new PolarYTransform(128, radiusOffset, arcToAngle, verticalComponent);
 		
 		return new LocationFunction(xTransform, yTransform);
 	}

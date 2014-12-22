@@ -43,7 +43,7 @@ public class PolarXTransformTest
 		MockitoAnnotations.initMocks(this);
 		
 		when(radiusFunction.applyTo(lane)).thenReturn(radius);
-		when(angleCalculator.applyTo(distance, lane)).thenReturn(angle);
+		when(angleCalculator.applyTo(radius, distance)).thenReturn(angle);
 		when(horizontalComponent.applyTo(radius, angle)).thenReturn(expectedResult);
 	}
 	

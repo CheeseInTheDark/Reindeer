@@ -3,11 +3,11 @@ package reindeerraces.track.functions;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
+import static org.hamcrest.Matchers.sameInstance;
 import static org.mockito.Mockito.when;
 
 import java.awt.Dimension;
 
-import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -17,9 +17,6 @@ import org.mockito.stubbing.OngoingStubbing;
 
 import reindeerraces.reindeer.Distance;
 import reindeerraces.reindeer.Lane;
-import reindeerraces.track.functions.Boundary;
-import reindeerraces.track.functions.LocationFunction;
-import reindeerraces.track.functions.Transform;
 
 
 public class TransformTest
@@ -33,12 +30,14 @@ public class TransformTest
 	@Mock
 	private Distance distance;
 
-	private int distanceValue = 50;
+	private double distanceValue = 50;
+	
+	private double relativeDistanceValue = 30;
 	
 	@Mock
 	private Lane lane;
 	
-	private int laneValue = 12;
+	private double laneValue = 12;
 	
 	@Mock
 	private LocationFunction transformFunction;
@@ -51,8 +50,9 @@ public class TransformTest
 	{
 		MockitoAnnotations.initMocks(this);
 		
-		when(transformFunction.applyTo(distanceValue, laneValue)).thenReturn(expectedLocation);
+		when(transformFunction.applyTo(relativeDistanceValue, laneValue)).thenReturn(expectedLocation);
 		
+		when(bounds.relativeDistance(distanceValue, laneValue)).thenReturn(relativeDistanceValue);
 		when(distance.getValue()).thenReturn(distanceValue);
 		when(lane.getValue()).thenReturn(laneValue);
 		
@@ -69,7 +69,7 @@ public class TransformTest
 	{
 		Dimension location = underTest.applyTo(distance, lane);
 		
-		assertThat(location, Matchers.sameInstance(expectedLocation));
+		assertThat(location, sameInstance(expectedLocation));
 	}
 	
 	@Test

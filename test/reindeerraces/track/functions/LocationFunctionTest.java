@@ -8,13 +8,11 @@ import java.awt.Dimension;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 public class LocationFunctionTest
 {
-	@InjectMocks
 	private LocationFunction underTest;
 	
 	@Mock
@@ -23,9 +21,13 @@ public class LocationFunctionTest
 	@Mock
 	private TwoParameterFunction yTransform;
 	
-	private int lane = 10;
+	private double lane = 10;
 	
-	private int distance = 12;
+	private double distance = 12;
+	
+	private double anotherLane = 11;
+	
+	private double anotherDistance = 13;
 	
 	private double expectedX = 50;
 	
@@ -39,13 +41,19 @@ public class LocationFunctionTest
 	public void setup()
 	{
 		MockitoAnnotations.initMocks(this);
+
+		underTest = new LocationFunction(xTransform, yTransform);
+		
+		when(xTransform.applyTo(distance, lane)).thenReturn(expectedX);
+		when(yTransform.applyTo(distance, lane)).thenReturn(expectedY);
+		
+		when(xTransform.applyTo(anotherDistance, anotherLane)).thenReturn(unroundedX);
+		when(yTransform.applyTo(anotherDistance, anotherLane)).thenReturn(unroundedY);
 	}
 	
 	@Test
 	public void shouldReturnXResult()
 	{
-		when(xTransform.applyTo(distance, lane)).thenReturn(expectedX);
-		
 		Dimension result = underTest.applyTo(distance, lane);
 		
 		assertThat(result.getWidth(), is(expectedX));
@@ -54,8 +62,6 @@ public class LocationFunctionTest
 	@Test
 	public void shouldReturnYResult()
 	{
-		when(yTransform.applyTo(distance, lane)).thenReturn(expectedY);
-		
 		Dimension result = underTest.applyTo(distance, lane);
 		
 		assertThat(result.getHeight(), is(expectedY));
@@ -64,9 +70,7 @@ public class LocationFunctionTest
 	@Test
 	public void shouldRoundXResult()
 	{
-		when(xTransform.applyTo(distance, lane)).thenReturn(unroundedX);
-		
-		Dimension result = underTest.applyTo(distance, lane);
+		Dimension result = underTest.applyTo(anotherDistance, anotherLane);
 		
 		assertThat(result.getWidth(), is(expectedX));
 	}
@@ -74,69 +78,9 @@ public class LocationFunctionTest
 	@Test
 	public void shouldRoundYResult()
 	{
-		when(yTransform.applyTo(distance, lane)).thenReturn(unroundedY);
-		
-		Dimension result = underTest.applyTo(distance, lane);
+		Dimension result = underTest.applyTo(anotherDistance, anotherLane);
 		
 		assertThat(result.getHeight(), is(expectedY));
 	}
-	
-//	@Test
-//	public void shouldReturn10And5()
-//	{
-//		underTest = new ParallelogramTransformFunction(0, 0, 0);
-//		stubDistanceAndLane(10, 5);
-//		
-//		verifyResultIs(10, 5);
-//	}
-//	
-//	@Test
-//	public void shouldReturn7And9()
-//	{
-//		underTest = new ParallelogramTransformFunction(0, 0, 0);
-//		stubDistanceAndLane(7, 9);
-//		
-//		verifyResultIs(7, 9);
-//	}
-//	
-//	@Test
-//	public void shouldAddXOffset()
-//	{
-//		underTest = new ParallelogramTransformFunction(50, 0, 0);
-//		stubDistanceAndLane(7, 9);
-//		
-//		verifyResultIs(57, 9);
-//	}
-	
-	
-//	@Test
-//	public void shouldAddYOffset()
-//	{
-//		underTest = new ParallelogramTransformFunction(0, 30, 0);
-//		stubDistanceAndLane(7, 9);
-//		
-//		verifyResultIs(7, 39);
-//	}
-//	
-//	@Test
-//	public void shouldApplyLaneSkew()
-//	{
-//		underTest = new ParallelogramTransformFunction(0, 0, 0.5);
-//		stubDistanceAndLane(10, 10);
-//		
-//		verifyResultIs(15, 10);
-//	}
-//	
-//	private void verifyResultIs(int x, int y)
-//	{
-//		Dimension location = underTest.applyTo(distance, lane);
-//		
-//		assertThat(location, is(new Dimension(x, y)));
-//	}
-//	
-//	private void stubDistanceAndLane(int distanceValue, int laneValue)
-//	{
-//		distance = distanceValue;
-//		lane = laneValue;
-//	}
+
 }

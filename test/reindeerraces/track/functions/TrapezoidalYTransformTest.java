@@ -1,7 +1,7 @@
 package reindeerraces.track.functions;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.closeTo;
 
 import org.junit.Test;
 
@@ -20,6 +20,6 @@ public class TrapezoidalYTransformTest
 	{
 		double result = underTest.applyTo(distance, lane);
 		
-		assertThat(result, is(yOffset + lane));
+		assertThat(result, closeTo(yOffset + lane, 0.0001));
 	}
 }

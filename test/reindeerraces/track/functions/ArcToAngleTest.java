@@ -10,7 +10,7 @@ import org.junit.Test;
 public class ArcToAngleTest
 {
 	int radius = 10;
-	int arc = 10;
+	int arc = 30;
 	double offset = PI/2;
 	
 	double expectedResult = (arc/radius) + offset;

@@ -13,7 +13,7 @@ public class ArcToAngle implements TwoParameterFunction
 	@Override
 	public double applyTo(double radius, double arc)
 	{
-		return (radius/arc) + offset;
+		return (arc/radius) + offset;
 	}
 
 }

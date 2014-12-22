@@ -21,8 +21,8 @@ public class PolarXTransform implements TwoParameterFunction
 	@Override
 	public double applyTo(double distance, double lane)
 	{
-		double angle = angleCalculator.applyTo(distance, lane);
 		double radius = radiusFunction.applyTo(lane);
+		double angle = angleCalculator.applyTo(radius, distance);
 		
 		return horizontalComponent.applyTo(radius, angle) + xOffset;
 	}

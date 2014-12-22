@@ -44,7 +44,7 @@ public class PolarYTransformTest
 		MockitoAnnotations.initMocks(this);
 		
 		when(radiusFunction.applyTo(lane)).thenReturn(radius);
-		when(angleCalculator.applyTo(distance, lane)).thenReturn(angle);
+		when(angleCalculator.applyTo(radius, -distance)).thenReturn(angle);
 		when(verticalComponent.applyTo(radius, angle)).thenReturn(expectedResult);
 	}
 	
@@ -53,6 +53,6 @@ public class PolarYTransformTest
 	{
 		double result = underTest.applyTo(distance, lane);
 		
-		assertThat(result, is(-expectedResult + yOffset + radius));
+		assertThat(result, is(-expectedResult + yOffset));
 	}
 }

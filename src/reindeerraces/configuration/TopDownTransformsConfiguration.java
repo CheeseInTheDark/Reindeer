@@ -52,7 +52,7 @@ public class TopDownTransformsConfiguration
 		
 		transforms.add(new Transform(firstStraightTopDownFunction, firstStraightTopDownBounds));
 		transforms.add(new Transform(firstCurveTopDownFunction, firstCurveTopDownBounds));
-		transforms.add(new Transform(thirdStraightTopDownFunction, thirdStraightTopDownBoundary));
+		transforms.add(new Transform(secondStraightTopDownFunction, secondStraightTopDownBounds));
 		transforms.add(new Transform(secondCurveTopDownFunction, secondCurveTopDownBoundary));
 		transforms.add(new Transform(thirdStraightTopDownFunction, thirdStraightTopDownBoundary));
 		

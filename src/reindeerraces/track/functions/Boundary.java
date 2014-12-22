@@ -19,4 +19,9 @@ public class Boundary
 		return distance < upperBound.applyTo(lane) && 
 			   distance >= lowerBound.applyTo(lane);
 	}
+
+	public double relativeDistance(double distance, double lane)
+	{
+		return distance - lowerBound.applyTo(lane);
+	}
 }

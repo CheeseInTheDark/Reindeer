@@ -17,7 +17,7 @@ public class TopDownBoundariesConfiguration
 	@Bean(name="firstStraightTopDownBoundaries")
 	public Boundary firstStraightTopDownBoundaries()
 	{
-		OneParameterFunction leftBound = new LinearFunction(-200, 0);
+		OneParameterFunction leftBound = new LinearFunction(0, 0);
 		OneParameterFunction rightBound = new LinearFunction(188, 0);
 		
 		return new Boundary(leftBound, rightBound);

@@ -16,7 +16,7 @@ public class LocationFunction
 		this.yTransform = yTransform;
 	}
 	
-	public Dimension applyTo(int distance, int lane)
+	public Dimension applyTo(double distance, double lane)
 	{
 		int x = (int) round(xTransform.applyTo(distance, lane));
 		int y = (int) round(yTransform.applyTo(distance, lane));

@@ -2,8 +2,10 @@ package reindeerraces.reindeer;
 
 public class Distance
 {
-	public int getValue()
+	int value = 300;
+	
+	public double getValue()
 	{
-		return 150;
+		return value;
 	}
 }

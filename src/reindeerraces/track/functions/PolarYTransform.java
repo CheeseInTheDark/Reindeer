@@ -2,8 +2,7 @@ package reindeerraces.track.functions;
 
 public class PolarYTransform implements TwoParameterFunction
 {
-
-	private OneParameterFunction radiusFunction;
+ 	private OneParameterFunction radiusFunction;
 	
 	private TwoParameterFunction angleCalculator;
 	
@@ -23,9 +22,9 @@ public class PolarYTransform implements TwoParameterFunction
 	public double applyTo(double distance, double lane)
 	{
 		double radius = radiusFunction.applyTo(lane);
-		double angle = angleCalculator.applyTo(distance, lane);
+		double angle = angleCalculator.applyTo(radius, -distance);
 		
-		return yOffset + radius - verticalComponent.applyTo(radius, angle);
+		return yOffset - verticalComponent.applyTo(radius, angle);
 	}
 
 }

@@ -6,7 +6,6 @@ import static org.mockito.Mockito.when;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -62,5 +61,13 @@ public class BoundaryTest
 		boolean result = underTest.contains(1.9, 5.0);
 		
 		assertThat(result, is(false));
+	}
+	
+	@Test
+	public void shouldReturnRelativeDistance()
+	{
+		double result = underTest.relativeDistance(3.5, 5.0);
+		
+		assertThat(result, is(1.5));
 	}
 }

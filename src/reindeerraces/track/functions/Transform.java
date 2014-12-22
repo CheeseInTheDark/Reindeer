@@ -20,9 +20,12 @@ public class Transform
 
 	public Dimension applyTo(Distance distance, Lane lane)
 	{
-		if (bounds.contains(distance.getValue(), lane.getValue()))
+		double distanceValue = distance.getValue();
+		double laneValue = lane.getValue();
+		
+		if (bounds.contains(distanceValue, laneValue))
 		{
-			return function.applyTo(distance.getValue(), lane.getValue());
+			return function.applyTo(bounds.relativeDistance(distanceValue, laneValue), lane.getValue());
 		}
 		
 		return null;

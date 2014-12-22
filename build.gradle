@@ -27,11 +27,11 @@ jar
 
     	manifest
 	{
-        	attributes 'Main-Class': 'reindeer.ReindeerLauncher'
+        	attributes 'Main-Class': 'reindeerraces.main.ReindeerLauncher'
     	}
 }
 
 sourceSets.main.java.srcDirs = ["src"]
 sourceSets.main.resources.srcDirs = ["images"]
 buildDir = "../bin"
-mainClassName = "reindeer.ReindeerLauncher"
+mainClassName = "reindeerraces.main.ReindeerLauncher"

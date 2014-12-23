@@ -9,8 +9,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-import org.hamcrest.MatcherAssert;
-import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -20,8 +18,6 @@ import org.mockito.MockitoAnnotations;
 import reindeerraces.draw.Renderer;
 import reindeerraces.draw.Renderer.RendererNeedingCanvas;
 import reindeerraces.draw.Renderer.RendererNeedingLocation;
-import reindeerraces.reindeer.RaceTrackLocation;
-import reindeerraces.reindeer.Reindeer;
 import reindeerraces.track.TrackLocationMapping;
 
 

@@ -3,7 +3,7 @@ package reindeerraces.main;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
-public class DelayAnswer implements Answer {
+public class DelayAnswer implements Answer<Object> {
 
 	private long time;
 	

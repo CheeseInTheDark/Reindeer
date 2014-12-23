@@ -12,8 +12,6 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import reindeerraces.draw.Renderer;
-
 
 public class RendererTest
 {

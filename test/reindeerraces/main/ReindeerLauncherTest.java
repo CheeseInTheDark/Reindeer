@@ -14,8 +14,6 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import reindeerraces.configuration.ReindeerLauncherConfiguration;
-import reindeerraces.main.ReindeerLauncher;
-import reindeerraces.main.ReindeerRacingGame;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({AnnotationConfigApplicationContext.class, 

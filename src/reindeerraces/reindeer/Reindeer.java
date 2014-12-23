@@ -21,7 +21,6 @@ public class Reindeer
 	
 	public Reindeer(BufferedImage reindeerAppearance,
 			RaceTrackLocation location, TrackLocationMapping topDownMapping, ReindeerName reindeerName)
-
 	{
 		this.appearance = reindeerAppearance;
 		this.location = location;

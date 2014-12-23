@@ -7,12 +7,14 @@ import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import reindeerraces.track.functions.Boundary;
 import reindeerraces.track.functions.LocationFunction;
 import reindeerraces.track.functions.Transform;
 
 @Configuration
+@Component
 public class TopDownTransformsConfiguration
 {
 	@Resource(name="firstStraightTopDownFunction")

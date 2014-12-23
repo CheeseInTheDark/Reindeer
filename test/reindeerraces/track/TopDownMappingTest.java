@@ -2,12 +2,14 @@ package reindeerraces.track;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 import static org.mockito.Mockito.when;
 
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -74,5 +76,13 @@ public class TopDownMappingTest
 		Dimension location = underTest.map(distance, lane);
 		
 		assertThat(location, is(expectedLocation));
+	}
+	
+	@Test
+	public void shouldReturnNullIfNoTransformsApply()
+	{
+		Dimension location = underTest.map(distance, lane);
+		
+		assertThat(location, is(nullValue()));
 	}
 }

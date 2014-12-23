@@ -4,20 +4,18 @@ import static java.lang.Math.PI;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
 import reindeerraces.track.functions.Boundary;
 import reindeerraces.track.functions.LinearFunction;
 import reindeerraces.track.functions.OneParameterFunction;
 
 @Configuration
-@Component
 public class TopDownBoundariesConfiguration
 {
 	@Bean(name="firstStraightTopDownBoundaries")
 	public Boundary firstStraightTopDownBoundaries()
 	{
-		OneParameterFunction leftBound = new LinearFunction(0, 0);
+		OneParameterFunction leftBound = new LinearFunction(-150, 0);
 		OneParameterFunction rightBound = new LinearFunction(188, 0);
 		
 		return new Boundary(leftBound, rightBound);

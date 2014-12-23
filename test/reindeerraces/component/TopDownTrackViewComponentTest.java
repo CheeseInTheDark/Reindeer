@@ -22,13 +22,12 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import reindeerraces.configuration.ReindeerLauncherConfiguration;
 import reindeerraces.guicomponents.TopDownTrackView;
-import reindeerraces.reindeer.RaceTrackLocation;
+import reindeerraces.reindeer.Reindeers;
 import reindeerraces.track.TrackLocationMapping;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes={ReindeerLauncherConfiguration.class})
+@ContextConfiguration(classes={TestReindeersConfiguration.class})
 public class TopDownTrackViewComponentTest
 {
 	@Resource(name="topDownTrackView")
@@ -43,9 +42,9 @@ public class TopDownTrackViewComponentTest
 	@Resource(name="topDownMapping")
 	private TrackLocationMapping topDownMapping;
 	
-	@Resource(name="startingLocation")
-	private RaceTrackLocation location;
-
+	@Resource(name="reindeers")
+	private Reindeers reindeers;
+	
 	@Mock
 	private Graphics canvas;
 	
@@ -75,8 +74,6 @@ public class TopDownTrackViewComponentTest
 	{
 		underTest.paint(canvas);
 
-		Dimension expectedLocation = location.mapTo(topDownMapping);
-		
-		verify(canvas).drawImage(reindeerAppearance, expectedLocation.width, expectedLocation.height, reindeerAppearance.getWidth(), reindeerAppearance.getHeight(), null); 
+		verify(reindeers).drawOn(canvas);
 	}
 }

@@ -22,7 +22,7 @@ public class TransformsConfiguration
 	@Bean(name="firstStraightTopDownFunction")
 	public LocationFunction firstStraightFunction()
 	{
-		TrapezoidalXTransform xTransform = new TrapezoidalXTransform(266, 0);
+		TrapezoidalXTransform xTransform = new TrapezoidalXTransform(116, 0);
 		TrapezoidalYTransform yTransform = new TrapezoidalYTransform(178);
 		
 		return new LocationFunction(xTransform, yTransform);

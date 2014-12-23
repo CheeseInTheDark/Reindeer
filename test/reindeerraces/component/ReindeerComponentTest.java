@@ -25,27 +25,21 @@ public class ReindeerComponentTest
 	@Resource
 	private Reindeers underTest;
 	
-	@Spy
 	@Resource(name="redReindeer")
 	private Reindeer redReindeer;
 	
-	@Spy
 	@Resource(name="blueReindeer")
 	private Reindeer blueReindeer;
 	
-	@Spy
 	@Resource(name="greenReindeer")
 	private Reindeer greenReindeer;
 	
-	@Spy
 	@Resource(name="yellowReindeer")
 	private Reindeer yellowReindeer;
 	
-	@Spy
 	@Resource(name="purpleReindeer")
 	private Reindeer purpleReindeer;
 	
-	@Spy
 	@Resource(name="pinkReindeer")
 	private Reindeer pinkReindeer;
 	

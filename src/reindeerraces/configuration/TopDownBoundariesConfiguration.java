@@ -16,7 +16,7 @@ public class TopDownBoundariesConfiguration
 	public Boundary firstStraightTopDownBoundaries()
 	{
 		OneParameterFunction leftBound = new LinearFunction(-150, 0);
-		OneParameterFunction rightBound = new LinearFunction(188, 0);
+		OneParameterFunction rightBound = new LinearFunction(190, 0);
 		
 		return new Boundary(leftBound, rightBound);
 	}
@@ -24,8 +24,8 @@ public class TopDownBoundariesConfiguration
 	@Bean(name="firstCurveTopDownBoundaries")
 	public Boundary firstCurveTopDownBoundaries()
 	{
-		OneParameterFunction lowBound = new LinearFunction(188, 0);
-		OneParameterFunction topBound = new LinearFunction(343.508836353, PI);
+		OneParameterFunction lowBound = new LinearFunction(190, 0);
+		OneParameterFunction topBound = new LinearFunction(345.508836353, PI);
 		
 		return new Boundary(lowBound, topBound);
 	}
@@ -33,8 +33,8 @@ public class TopDownBoundariesConfiguration
 	@Bean(name="secondStraightTopDownBoundaries")
 	public Boundary secondStraightTopDownBoundaries()
 	{
-		OneParameterFunction rightBound = new LinearFunction(343.508836353, PI);
-		OneParameterFunction leftBound = new LinearFunction(657.508836353, PI);
+		OneParameterFunction rightBound = new LinearFunction(345.508836353, PI);
+		OneParameterFunction leftBound = new LinearFunction(663.508836353, PI);
 		
 		return new Boundary(rightBound, leftBound);
 	}
@@ -42,8 +42,8 @@ public class TopDownBoundariesConfiguration
 	@Bean(name="secondCurveTopDownBoundaries")
 	public Boundary secondCurveTopDownBoundaries()
 	{
-		OneParameterFunction topBound = new LinearFunction(657.508836353, PI);
-		OneParameterFunction lowBound = new LinearFunction(813.017672706, PI * 2);
+		OneParameterFunction topBound = new LinearFunction(663.508836353, PI);
+		OneParameterFunction lowBound = new LinearFunction(819.017672706, PI * 2);
 		
 		return new Boundary(topBound, lowBound);
 	}
@@ -51,7 +51,7 @@ public class TopDownBoundariesConfiguration
 	@Bean(name="thirdStraightTopDownBoundaries")
 	public Boundary thirdStraightTopDownBoundaries()
 	{
-		OneParameterFunction leftBound = new LinearFunction(813.017672706, PI * 2);
+		OneParameterFunction leftBound = new LinearFunction(819.017672706, PI * 2);
 		OneParameterFunction rightBound = new LinearFunction(3000, PI * 2);
 		
 		return new Boundary(leftBound, rightBound);

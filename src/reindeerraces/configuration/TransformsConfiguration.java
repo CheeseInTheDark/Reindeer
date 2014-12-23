@@ -45,7 +45,7 @@ public class TransformsConfiguration
 	@Bean(name="secondStraightTopDownFunction")
 	public LocationFunction secondStraightFunction()
 	{
-		InvertedTransform xTransform = new InvertedTransform(new TrapezoidalXTransform(453, PI));
+		InvertedTransform xTransform = new InvertedTransform(new TrapezoidalXTransform(457, 0));
 		InvertedTransform yTransform = new InvertedTransform(new TrapezoidalYTransform(78));
 		
 		return new LocationFunction(xTransform, yTransform);
@@ -68,7 +68,7 @@ public class TransformsConfiguration
 	@Bean(name="thirdStraightTopDownFunction")
 	public LocationFunction thirdStraightTopDownFunction()
 	{
-		TrapezoidalXTransform xTransform = new TrapezoidalXTransform(142, PI * 2);
+		TrapezoidalXTransform xTransform = new TrapezoidalXTransform(140, 0);
 		TrapezoidalYTransform yTransform = new TrapezoidalYTransform(178);
 		
 		return new LocationFunction(xTransform, yTransform);		

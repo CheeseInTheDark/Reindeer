@@ -35,37 +35,37 @@ public class ReindeerConfiguration
 	@Bean(name="topDownReindeerAppearanceBlue")
 	public BufferedImage blueReindeer() throws IOException
 	{
-		return ImageLoader.getImage("TopDownReindeerBlueSmall.png");
+		return ImageLoader.getImage("TopDownReindeerBlueDot.png");
 	}
 	
 	@Bean(name="topDownReindeerAppearanceGreen")
 	public BufferedImage greenReindeer() throws IOException
 	{
-		return ImageLoader.getImage("TopDownReindeerGreenSmall.png");
+		return ImageLoader.getImage("TopDownReindeerGreenDot.png");
 	}
 	
 	@Bean(name="topDownReindeerAppearancePink")
 	public BufferedImage pinkReindeer() throws IOException
 	{
-		return ImageLoader.getImage("TopDownReindeerPinkSmall.png");
+		return ImageLoader.getImage("TopDownReindeerPinkDot.png");
 	}
 	
 	@Bean(name="topDownReindeerAppearancePurple")
 	public BufferedImage purpleReindeer() throws IOException
 	{
-		return ImageLoader.getImage("TopDownReindeerPurpleSmall.png");
+		return ImageLoader.getImage("TopDownReindeerPurpleDot.png");
 	}
 	
 	@Bean(name="topDownReindeerAppearanceRed")
 	public BufferedImage redReindeer() throws IOException
 	{
-		return ImageLoader.getImage("TopDownReindeerRedSmall.png");
+		return ImageLoader.getImage("TopDownReindeerRedDot.png");
 	}
 	
 	@Bean(name="topDownReindeerAppearanceYellow")
 	public BufferedImage yellowReindeer() throws IOException
 	{
-		return ImageLoader.getImage("TopDownReindeerYellowSmall.png");
+		return ImageLoader.getImage("TopDownReindeerYellowDot.png");
 	}
 	
 	private ReindeerName reindeerNameBlue = new ReindeerName("Fred");
@@ -84,37 +84,37 @@ public class ReindeerConfiguration
 	@Bean(name="blueReindeer")
 	public Reindeer createBlue() throws IOException
 	{
-		return new Reindeer(blueReindeer(), location(-126, 0), topDownMapping(), reindeerNameBlue);
+		return new Reindeer(blueReindeer(), location(-126, 2), topDownMapping(), reindeerNameBlue);
 	}
  
 	@Bean(name="greenReindeer")
 	public Reindeer createGreen() throws IOException
 	{
-		return new Reindeer(greenReindeer(), location(-101, 4), topDownMapping(), reindeerNameGreen);
+		return new Reindeer(greenReindeer(), location(-101, 6), topDownMapping(), reindeerNameGreen);
 	}
  
 	@Bean(name="pinkReindeer")
 	public Reindeer createPink() throws IOException
 	{
-		return new Reindeer(pinkReindeer(), location(-75, 8), topDownMapping(), reindeerNamePink);
+		return new Reindeer(pinkReindeer(), location(-75, 10), topDownMapping(), reindeerNamePink);
 	}
  
 	@Bean(name="purpleReindeer")
 	public Reindeer createPurple() throws IOException
 	{
-		return new Reindeer(purpleReindeer(), location(-50, 12), topDownMapping(), reindeerNamePurple);
+		return new Reindeer(purpleReindeer(), location(-50, 14), topDownMapping(), reindeerNamePurple);
 	} 
 	
 	@Bean(name="redReindeer")
 	public Reindeer createRed() throws IOException
 	{
-		return new Reindeer(redReindeer(), location(-25, 16), topDownMapping(), reindeerNameRed);
+		return new Reindeer(redReindeer(), location(-25, 18), topDownMapping(), reindeerNameRed);
 	}
  
 	@Bean(name="yellowReindeer")
 	public Reindeer createYellow() throws IOException
 	{
-		return new Reindeer(yellowReindeer(), location(0, 20), topDownMapping(), reindeerNameYellow);
+		return new Reindeer(yellowReindeer(), location(0, 22), topDownMapping(), reindeerNameYellow);
 	}
 	
 	public RaceTrackLocation location(int distance, int lane)

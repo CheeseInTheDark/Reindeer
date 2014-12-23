@@ -40,7 +40,10 @@ public class Renderer
 
 		public void at(Dimension location)
 		{
-			canvas.drawImage(image, location.width, location.height, image.getWidth(), image.getHeight(), null);
+			int imageWidth = image.getWidth();
+			int imageHeight = image.getHeight();
+			
+			canvas.drawImage(image, location.width-imageWidth/2, location.height-imageHeight/2, imageWidth, imageHeight, null);
 		}
 	}
 }

@@ -51,6 +51,6 @@ public class RendererTest
 	{
 		underTest.draw(image).on(canvas).at(location);
 		
-		verify(canvas).drawImage(image, location.width, location.height, image.getWidth(), image.getHeight(), null);
+		verify(canvas).drawImage(image, location.width - image.getWidth()/2, location.height - image.getHeight()/2, image.getWidth(), image.getHeight(), null);
 	}
 }

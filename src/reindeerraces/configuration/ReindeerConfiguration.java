@@ -84,37 +84,37 @@ public class ReindeerConfiguration
 	@Bean(name="blueReindeer")
 	public Reindeer createBlue() throws IOException
 	{
-		return new Reindeer(blueReindeer(), location(-126, 2), topDownMapping(), reindeerNameBlue);
+		return new Reindeer(blueReindeer(), location(-126, 2), topDownMapping(), reindeerNameBlue, null);
 	}
  
 	@Bean(name="greenReindeer")
 	public Reindeer createGreen() throws IOException
 	{
-		return new Reindeer(greenReindeer(), location(-101, 6), topDownMapping(), reindeerNameGreen);
+		return new Reindeer(greenReindeer(), location(-101, 6), topDownMapping(), reindeerNameGreen, null);
 	}
  
 	@Bean(name="pinkReindeer")
 	public Reindeer createPink() throws IOException
 	{
-		return new Reindeer(pinkReindeer(), location(-75, 10), topDownMapping(), reindeerNamePink);
+		return new Reindeer(pinkReindeer(), location(-75, 10), topDownMapping(), reindeerNamePink, null);
 	}
  
 	@Bean(name="purpleReindeer")
 	public Reindeer createPurple() throws IOException
 	{
-		return new Reindeer(purpleReindeer(), location(-50, 14), topDownMapping(), reindeerNamePurple);
+		return new Reindeer(purpleReindeer(), location(-50, 14), topDownMapping(), reindeerNamePurple, null);
 	} 
 	
 	@Bean(name="redReindeer")
 	public Reindeer createRed() throws IOException
 	{
-		return new Reindeer(redReindeer(), location(-25, 18), topDownMapping(), reindeerNameRed);
+		return new Reindeer(redReindeer(), location(-25, 18), topDownMapping(), reindeerNameRed, null);
 	}
  
 	@Bean(name="yellowReindeer")
 	public Reindeer createYellow() throws IOException
 	{
-		return new Reindeer(yellowReindeer(), location(0, 22), topDownMapping(), reindeerNameYellow);
+		return new Reindeer(yellowReindeer(), location(0, 22), topDownMapping(), reindeerNameYellow, null);
 	}
 	
 	public RaceTrackLocation location(int distance, int lane)

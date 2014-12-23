@@ -20,4 +20,12 @@ public class Reindeers
 		}
 	}
 
+	public void update()
+	{
+		for(Reindeer reindeer : reindeerList)
+		{
+			reindeer.update();
+		}
+	}
+
 }

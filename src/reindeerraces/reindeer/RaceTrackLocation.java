@@ -20,4 +20,9 @@ public class RaceTrackLocation
 	{
 		return locationMapper.map(distance, lane);
 	}
+
+	public void moveUsing(MovementBehavior movementBehavior)
+	{
+		movementBehavior.updateDistance(distance);
+	}
 }

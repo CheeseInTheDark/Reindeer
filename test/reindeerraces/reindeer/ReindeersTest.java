@@ -48,4 +48,13 @@ public class ReindeersTest
 		verify(reindeer).drawOn(canvas);
 		verify(anotherReindeer).drawOn(canvas);
 	}
+	
+	@Test
+	public void shouldUpdateReindeer()
+	{
+		underTest.update();
+		
+		verify(reindeer).update();
+		verify(anotherReindeer).update();
+	}
 }

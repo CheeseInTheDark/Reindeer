@@ -28,7 +28,7 @@ import reindeerraces.track.TrackLocationMapping;
 public class ReindeerTest
 {
 	@InjectMocks
-	private Reindeer underTest = new Reindeer(null, null, null, null);
+	private Reindeer underTest = new Reindeer(null, null, null, null, null);
 	
 	@Mock
 	private ReindeerName name;
@@ -56,6 +56,9 @@ public class ReindeerTest
 	
 	@Mock
 	private RendererNeedingLocation rendererNeedingLocation;
+
+	@Mock
+	private MovementBehavior movementBehavior;
 	
 	@Before
 	public void setup()
@@ -99,4 +102,11 @@ public class ReindeerTest
 		assertThat(underTest.getReindeerName(), is(nameToUse));
 	}
 	
+	@Test
+	public void shouldUpdateLocation()
+	{
+		underTest.update();
+		
+		verify(location).moveUsing(movementBehavior);
+	}
 }

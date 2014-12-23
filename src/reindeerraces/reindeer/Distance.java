@@ -2,9 +2,9 @@ package reindeerraces.reindeer;
 
 public class Distance
 {
-	int value;
+	double value;
 	
-	public Distance(int distance)
+	public Distance(double distance)
 	{
 		value = distance;
 	}
@@ -12,5 +12,9 @@ public class Distance
 	public double getValue()
 	{
 		return value;
+	}
+
+	public void increaseBy(double distanceToAdd)
+	{
 	}
 }

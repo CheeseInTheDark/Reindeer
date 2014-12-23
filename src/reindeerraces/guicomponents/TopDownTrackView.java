@@ -33,7 +33,7 @@ public class TopDownTrackView extends JPanel
 	}
 	
 	@Override
-	public void paint(Graphics canvas)
+	public void paintComponent(Graphics canvas)
 	{
 		int width = trackImage.getWidth();
 		int height = trackImage.getHeight();

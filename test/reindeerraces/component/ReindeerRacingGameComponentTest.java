@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import reindeerraces.configuration.ReindeerLauncherConfiguration;
 import reindeerraces.main.ReindeerRacingGame;
+import reindeerraces.main.UpdaterThread;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes={ReindeerLauncherConfiguration.class})
@@ -24,11 +25,16 @@ public class ReindeerRacingGameComponentTest
 	@Resource
 	private ReindeerRacingGame game;
 	
+	@Resource
+	private UpdaterThread updaterThread;
+	
 	@Test
 	public void shouldShowWindow()
 	{
 		game.launch();
 		
 		assertThat(window.isVisible(), is(true));
+		
+		updaterThread.interrupt();
 	}
 }

@@ -65,14 +65,14 @@ public class TopDownTrackViewComponentTest
 	@Test
 	public void shouldPaintRaceTrack()
 	{
-		underTest.paint(canvas);
+		underTest.paintComponent(canvas);
 		verify(canvas).drawImage(eq(trackImage), anyInt(), anyInt(), anyInt(), anyInt(), any(Color.class), eq(null));
 	}
 	
 	@Test
 	public void shouldPaintReindeers()
 	{
-		underTest.paint(canvas);
+		underTest.paintComponent(canvas);
 
 		verify(reindeers).drawOn(canvas);
 	}

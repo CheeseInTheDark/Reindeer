@@ -16,5 +16,6 @@ public class Distance
 
 	public void increaseBy(double distanceToAdd)
 	{
+		value += distanceToAdd;
 	}
 }

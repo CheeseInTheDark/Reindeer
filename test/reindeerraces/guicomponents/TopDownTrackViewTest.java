@@ -53,7 +53,7 @@ public class TopDownTrackViewTest
 	@Test
 	public void shouldPaintTrack()
 	{
-		underTest.paint(graphics);
+		underTest.paintComponent(graphics);
 		
 		verify(graphics).drawImage(trackImage, 0, 0, width, height, Color.WHITE, null);
 	}
@@ -61,7 +61,7 @@ public class TopDownTrackViewTest
 	@Test
 	public void shouldPaintAllReindeer()
 	{
-		underTest.paint(graphics);
+		underTest.paintComponent(graphics);
 		
 		verify(reindeers).drawOn(graphics);
 	}

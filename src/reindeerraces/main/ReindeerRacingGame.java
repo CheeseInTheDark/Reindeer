@@ -11,8 +11,12 @@ public class ReindeerRacingGame
 	@Resource
 	private JFrame window;
 	
+	@Resource
+	private UpdaterThread updaterThread;
+	
 	public void launch()
 	{
 		window.setVisible(true);
+		updaterThread.start();
 	}
 }

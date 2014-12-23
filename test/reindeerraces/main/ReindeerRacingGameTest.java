@@ -21,6 +21,9 @@ public class ReindeerRacingGameTest
 	@Mock
 	private JFrame window;
 	
+	@Mock
+	private UpdaterThread updaterThread;
+	
 	@Before
 	public void setup()
 	{
@@ -35,4 +38,12 @@ public class ReindeerRacingGameTest
 		verify(window).setVisible(true);
 	}
 	
+	@Test
+	public void shouldStartUpdaterThread()
+	{
+		underTest.launch();
+		
+		verify(updaterThread).start();
+	}
+
 }

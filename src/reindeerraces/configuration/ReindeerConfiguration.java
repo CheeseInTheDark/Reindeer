@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 import reindeerraces.reindeer.Distance;
 import reindeerraces.reindeer.Lane;
+import reindeerraces.reindeer.MovementBehavior;
 import reindeerraces.reindeer.RaceTrackLocation;
 import reindeerraces.reindeer.Reindeer;
 import reindeerraces.reindeer.ReindeerName;
@@ -84,37 +85,37 @@ public class ReindeerConfiguration
 	@Bean(name="blueReindeer")
 	public Reindeer createBlue() throws IOException
 	{
-		return new Reindeer(blueReindeer(), location(-126, 2), topDownMapping(), reindeerNameBlue, null);
+		return new Reindeer(blueReindeer(), location(-126, 2), topDownMapping(), reindeerNameBlue, new MovementBehavior(0.5));
 	}
  
 	@Bean(name="greenReindeer")
 	public Reindeer createGreen() throws IOException
 	{
-		return new Reindeer(greenReindeer(), location(-101, 6), topDownMapping(), reindeerNameGreen, null);
+		return new Reindeer(greenReindeer(), location(-101, 6), topDownMapping(), reindeerNameGreen, new MovementBehavior(0.5));
 	}
  
 	@Bean(name="pinkReindeer")
 	public Reindeer createPink() throws IOException
 	{
-		return new Reindeer(pinkReindeer(), location(-75, 10), topDownMapping(), reindeerNamePink, null);
+		return new Reindeer(pinkReindeer(), location(-75, 10), topDownMapping(), reindeerNamePink, new MovementBehavior(0.5));
 	}
  
 	@Bean(name="purpleReindeer")
 	public Reindeer createPurple() throws IOException
 	{
-		return new Reindeer(purpleReindeer(), location(-50, 14), topDownMapping(), reindeerNamePurple, null);
+		return new Reindeer(purpleReindeer(), location(-50, 14), topDownMapping(), reindeerNamePurple, new MovementBehavior(0.5));
 	} 
 	
 	@Bean(name="redReindeer")
 	public Reindeer createRed() throws IOException
 	{
-		return new Reindeer(redReindeer(), location(-25, 18), topDownMapping(), reindeerNameRed, null);
+		return new Reindeer(redReindeer(), location(-25, 18), topDownMapping(), reindeerNameRed, new MovementBehavior(0.5));
 	}
  
 	@Bean(name="yellowReindeer")
 	public Reindeer createYellow() throws IOException
 	{
-		return new Reindeer(yellowReindeer(), location(0, 22), topDownMapping(), reindeerNameYellow, null);
+		return new Reindeer(yellowReindeer(), location(0, 22), topDownMapping(), reindeerNameYellow, new MovementBehavior(0.5));
 	}
 	
 	public RaceTrackLocation location(int distance, int lane)

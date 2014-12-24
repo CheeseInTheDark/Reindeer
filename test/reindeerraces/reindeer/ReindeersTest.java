@@ -1,6 +1,8 @@
 package reindeerraces.reindeer;
 
+import static java.util.Arrays.asList;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
@@ -24,6 +26,15 @@ public class ReindeersTest
 	
 	@Mock
 	private Reindeer anotherReindeer;
+	
+	@Mock
+	private MovementBehavior reindeerMovement;
+	
+	@Mock
+	private MovementBehavior anotherReindeerMovement;
+	
+	@Mock
+	private MovementBehaviorFactory behaviorFactory;
 	
 	@Spy
 	private List<Reindeer> reindeerList = new ArrayList<Reindeer>();
@@ -56,5 +67,16 @@ public class ReindeersTest
 		
 		verify(reindeer).update();
 		verify(anotherReindeer).update();
+	}
+	
+	@Test
+	public void shouldScrambleOdds()
+	{
+		when(behaviorFactory.generate(reindeerList.size())).thenReturn(asList(reindeerMovement, anotherReindeerMovement));
+		
+		underTest.scrambleReindeerOdds();
+		
+		verify(reindeer).setMovementBehavior(reindeerMovement);
+		verify(anotherReindeer).setMovementBehavior(anotherReindeerMovement);
 	}
 }

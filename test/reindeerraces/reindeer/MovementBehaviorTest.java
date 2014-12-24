@@ -4,17 +4,20 @@ import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 public class MovementBehaviorTest
 {
-	private double distanceToAdd = 0.4; 
-	
-	private MovementBehavior underTest = new MovementBehavior(0.4);
+	@InjectMocks
+	private MovementBehavior underTest;
 	
 	@Mock
 	private Distance distance;
+	
+	@Mock
+	private Velocity velocity;
 	
 	@Before
 	public void setup()
@@ -27,6 +30,14 @@ public class MovementBehaviorTest
 	{
 		underTest.updateDistance(distance);
 		
-		verify(distance).increaseBy(distanceToAdd);
+		verify(velocity).applyTo(distance);
+	}
+
+	@Test
+	public void shouldChangeVelocity()
+	{
+		underTest.updateDistance(distance);
+		
+		verify(velocity).update();
 	}
 }

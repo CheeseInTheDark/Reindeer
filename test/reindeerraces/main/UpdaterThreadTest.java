@@ -70,12 +70,11 @@ public class UpdaterThreadTest
 		doAnswer(new StopThreadAnswer(underTest)).when(frameTimer).waitUntilExpiration();
 		
 		underTest.start();
+		underTest.waitForDeath();
 		
 		inOrder.verify(frameTimer).startFrame();
 		inOrder.verify(reindeers).update();
 		inOrder.verify(frameTimer).waitUntilExpiration();
-		
-		underTest.waitForDeath();
 	}
 	
 	@Test

@@ -24,7 +24,7 @@ import reindeerraces.track.TrackLocationMapping;
 public class ReindeerTest
 {
 	@InjectMocks
-	private Reindeer underTest = new Reindeer(null, null, null, null, null);
+	private Reindeer underTest = new Reindeer(null, null, null, null);
 	
 	@Mock
 	private ReindeerName name;
@@ -60,6 +60,8 @@ public class ReindeerTest
 	public void setup()
 	{
 		MockitoAnnotations.initMocks(this);
+		
+		underTest.setMovementBehavior(movementBehavior);
 		
 		when(location.mapTo(mapping)).thenReturn(mappedLocation);
 		

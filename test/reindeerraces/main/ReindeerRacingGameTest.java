@@ -10,6 +10,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import reindeerraces.reindeer.Reindeers;
+
 
 public class ReindeerRacingGameTest
 {
@@ -21,6 +23,9 @@ public class ReindeerRacingGameTest
 	
 	@Mock
 	private UpdaterThread updaterThread;
+	
+	@Mock
+	private Reindeers reindeers;
 	
 	@Before
 	public void setup()
@@ -37,11 +42,18 @@ public class ReindeerRacingGameTest
 	}
 	
 	@Test
+	public void shouldScrambleReindeerOdds()
+	{
+		underTest.launch();
+		
+		verify(reindeers).scrambleReindeerOdds();
+	}
+	
+	@Test
 	public void shouldStartUpdaterThread()
 	{
 		underTest.launch();
 		
 		verify(updaterThread).start();
 	}
-
 }

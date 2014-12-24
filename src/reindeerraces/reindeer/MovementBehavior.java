@@ -2,15 +2,16 @@ package reindeerraces.reindeer;
 
 public class MovementBehavior
 {
-	private double increment;
+	private Velocity velocity;
 	
-	public MovementBehavior(double increment)
+	public MovementBehavior(Velocity velocity)
 	{
-		this.increment = increment;
+		this.velocity = velocity;
 	}
 
 	public void updateDistance(Distance distance)
 	{
-		distance.increaseBy(increment);
+		velocity.update();
+		velocity.applyTo(distance);
 	}
 }

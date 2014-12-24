@@ -24,14 +24,12 @@ public class Reindeer
 	public Reindeer(BufferedImage reindeerAppearance,
 			RaceTrackLocation location, 
 			TrackLocationMapping topDownMapping, 
-			ReindeerName reindeerName,
-			MovementBehavior movementBehavior)
+			ReindeerName reindeerName)
 	{
 		this.appearance = reindeerAppearance;
 		this.location = location;
 		this.mapping = topDownMapping;
 		this.reindeerName = reindeerName;
-		this.movementBehavior = movementBehavior;
 	} 
 	
 	public void drawOn(Graphics canvas)
@@ -54,5 +52,10 @@ public class Reindeer
 	public void update()
 	{
 		location.moveUsing(movementBehavior);
+	}
+
+	public void setMovementBehavior(MovementBehavior reindeerMovement)
+	{
+		this.movementBehavior = reindeerMovement;
 	}
 }

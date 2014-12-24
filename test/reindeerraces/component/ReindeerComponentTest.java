@@ -62,5 +62,5 @@ public class ReindeerComponentTest
 		verify(pinkReindeer).drawOn(canvas);
 		verify(blueReindeer).drawOn(canvas);
 		verify(purpleReindeer).drawOn(canvas);
-	} 
+	}
 }

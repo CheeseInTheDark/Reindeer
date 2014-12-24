@@ -5,8 +5,6 @@ import static org.hamcrest.Matchers.is;
 
 import org.junit.Test;
 
-import reindeerraces.reindeer.Race;
-
 
 public class RaceTest
 {

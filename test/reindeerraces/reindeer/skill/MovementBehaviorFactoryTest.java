@@ -1,4 +1,4 @@
-package reindeerraces.reindeer;
+package reindeerraces.reindeer.skill;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.MatcherAssert.assertThat;

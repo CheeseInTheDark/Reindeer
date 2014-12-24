@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 import reindeerraces.draw.Renderer;
+import reindeerraces.reindeer.skill.MovementBehavior;
 import reindeerraces.track.TrackLocationMapping;
 
 public class Reindeer 

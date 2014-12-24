@@ -16,14 +16,14 @@ import org.springframework.context.annotation.Configuration;
 
 import reindeerraces.reindeer.Distance;
 import reindeerraces.reindeer.Lane;
-import reindeerraces.reindeer.MovementBehavior;
-import reindeerraces.reindeer.MovementBehaviorFactory;
 import reindeerraces.reindeer.RaceTrackLocation;
-import reindeerraces.reindeer.RandomRange;
 import reindeerraces.reindeer.Reindeer;
 import reindeerraces.reindeer.ReindeerName;
 import reindeerraces.reindeer.Reindeers;
-import reindeerraces.reindeer.Velocity;
+import reindeerraces.reindeer.skill.MovementBehavior;
+import reindeerraces.reindeer.skill.MovementBehaviorFactory;
+import reindeerraces.reindeer.skill.RandomRange;
+import reindeerraces.reindeer.skill.Velocity;
 import reindeerraces.track.TopDownMapping;
 
 @Configuration

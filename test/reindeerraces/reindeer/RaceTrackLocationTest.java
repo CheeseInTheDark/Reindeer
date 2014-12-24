@@ -13,6 +13,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import reindeerraces.reindeer.skill.MovementBehavior;
 import reindeerraces.track.TrackLocationMapping;
 
 

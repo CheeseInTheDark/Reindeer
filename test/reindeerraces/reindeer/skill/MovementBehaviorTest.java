@@ -1,4 +1,4 @@
-package reindeerraces.reindeer;
+package reindeerraces.reindeer.skill;
 
 import static org.mockito.Mockito.verify;
 
@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
+import reindeerraces.reindeer.Distance;
 
 public class MovementBehaviorTest
 {

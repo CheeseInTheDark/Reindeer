@@ -15,6 +15,9 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
+import reindeerraces.reindeer.skill.MovementBehavior;
+import reindeerraces.reindeer.skill.MovementBehaviorFactory;
+
 
 public class ReindeersTest
 {

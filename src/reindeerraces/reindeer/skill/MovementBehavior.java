@@ -1,4 +1,6 @@
-package reindeerraces.reindeer;
+package reindeerraces.reindeer.skill;
+
+import reindeerraces.reindeer.Distance;
 
 public class MovementBehavior
 {

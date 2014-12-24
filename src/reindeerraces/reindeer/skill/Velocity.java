@@ -1,7 +1,8 @@
-package reindeerraces.reindeer;
+package reindeerraces.reindeer.skill;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
+import reindeerraces.reindeer.Distance;
 
 public class Velocity
 {

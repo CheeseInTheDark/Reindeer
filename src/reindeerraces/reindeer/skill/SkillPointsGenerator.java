@@ -1,4 +1,4 @@
-package reindeerraces.reindeer;
+package reindeerraces.reindeer.skill;
 
 import static java.lang.Math.min;
 

@@ -2,6 +2,7 @@ package reindeerraces.reindeer;
 
 import java.awt.Dimension;
 
+import reindeerraces.reindeer.skill.MovementBehavior;
 import reindeerraces.track.TrackLocationMapping;
 
 public class RaceTrackLocation

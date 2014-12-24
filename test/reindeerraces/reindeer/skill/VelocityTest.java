@@ -1,4 +1,4 @@
-package reindeerraces.reindeer;
+package reindeerraces.reindeer.skill;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -8,6 +8,8 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.stubbing.OngoingStubbing;
+
+import reindeerraces.reindeer.Distance;
 
 
 public class VelocityTest

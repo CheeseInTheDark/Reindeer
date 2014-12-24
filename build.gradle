@@ -23,7 +23,7 @@ dependencies
 jar
 {
 	from ('.')
-	include('images/**')
+	include('images/**')	
 
     	manifest
 	{

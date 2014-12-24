@@ -3,7 +3,8 @@ package reindeerraces.reindeer;
 import java.awt.Graphics;
 import java.util.List;
 
-import javax.annotation.Resource;
+import reindeerraces.reindeer.skill.MovementBehavior;
+import reindeerraces.reindeer.skill.MovementBehaviorFactory;
 
 public class Reindeers
 {

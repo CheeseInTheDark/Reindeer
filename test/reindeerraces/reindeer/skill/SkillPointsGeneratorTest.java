@@ -1,4 +1,4 @@
-package reindeerraces.reindeer;
+package reindeerraces.reindeer.skill;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;

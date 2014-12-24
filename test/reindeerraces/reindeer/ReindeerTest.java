@@ -18,6 +18,7 @@ import org.mockito.MockitoAnnotations;
 import reindeerraces.draw.Renderer;
 import reindeerraces.draw.Renderer.RendererNeedingCanvas;
 import reindeerraces.draw.Renderer.RendererNeedingLocation;
+import reindeerraces.reindeer.skill.MovementBehavior;
 import reindeerraces.track.TrackLocationMapping;
 
 

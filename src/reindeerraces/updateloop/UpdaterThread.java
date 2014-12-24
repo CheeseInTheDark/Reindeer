@@ -1,4 +1,4 @@
-package reindeerraces.main;
+package reindeerraces.updateloop;
 
 import javax.annotation.Resource;
 
@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 import reindeerraces.guicomponents.TopDownTrackView;
 import reindeerraces.reindeer.Reindeers;
-import reindeerraces.updateloop.FrameTimer;
 
 @Component
 public class UpdaterThread extends Thread

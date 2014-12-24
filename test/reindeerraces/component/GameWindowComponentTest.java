@@ -4,6 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 import javax.annotation.Resource;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -21,24 +22,42 @@ public class GameWindowComponentTest
 	@Resource(name="gameWindow")
 	private JFrame gameWindow;
 	
+	@Resource(name="gameView")
+	private JPanel gameView;
+	
 	@Resource(name="topDownTrackView")
-	private JPanel topDownView;
+	private JPanel topDownTrackView;
+	
+	@Resource(name="startRace")
+	private JButton startRaceButton;
 	
 	@Test
-	public void shouldHaveTopDownRaceTrackView()
+	public void shouldHaveGameView()
 	{
-		assertThat(gameWindow.getContentPane().getComponent(0), is(topDownView));
+		assertThat(gameWindow.getContentPane().getComponent(0), is(gameView));
 	}
 	
 	@Test
 	public void shouldPackWindow()
 	{
-		assertThat(gameWindow.getContentPane().getSize(), is(topDownView.getPreferredSize()));
+		assertThat(gameWindow.getContentPane().getSize(), is(gameView.getPreferredSize()));
 	}
 	
 	@Test
 	public void shouldExitOnClose()
 	{
 		assertThat(gameWindow.getDefaultCloseOperation(), is(JFrame.EXIT_ON_CLOSE));
+	}
+	
+	@Test
+	public void shouldHaveRaceTrackViewAsSubComponent()
+	{
+		assertThat(gameView.getComponent(0), is(topDownTrackView));
+	}
+	
+	@Test
+	public void shouldHaveStartRaceButtonAsSubComponent()
+	{
+		assertThat(gameView.getComponent(1), is(startRaceButton));
 	}
 }

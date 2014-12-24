@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
 
 import reindeerraces.reindeer.Distance;
 import reindeerraces.reindeer.Lane;
+import reindeerraces.reindeer.Race;
 import reindeerraces.reindeer.RaceTrackLocation;
 import reindeerraces.reindeer.Reindeer;
 import reindeerraces.reindeer.ReindeerName;
@@ -29,6 +30,12 @@ import reindeerraces.track.TopDownMapping;
 @Configuration
 public class ReindeerConfiguration
 {
+	@Bean
+	public Race race()
+	{
+		return new Race();
+	}
+	
 	@Bean(name="skillPointsMapping")
 	public Map<Integer, MovementBehavior> movementMap()
 	{
@@ -36,15 +43,15 @@ public class ReindeerConfiguration
 		
 		RandomRange accelerationRange = new RandomRange(new Random(), -0.001, 0.001);
 		
-		behaviors.put(0, new MovementBehavior(new Velocity(0.5, 0.6, 0.5, accelerationRange)));
-		behaviors.put(1, new MovementBehavior(new Velocity(0.5, 0.62, 0.5, accelerationRange)));
-		behaviors.put(2, new MovementBehavior(new Velocity(0.5, 0.64, 0.5, accelerationRange)));
-		behaviors.put(3, new MovementBehavior(new Velocity(0.5, 0.66, 0.5, accelerationRange)));
-		behaviors.put(4, new MovementBehavior(new Velocity(0.5, 0.68, 0.5, accelerationRange)));
-		behaviors.put(5, new MovementBehavior(new Velocity(0.5, 0.7, 0.5, accelerationRange)));
-		behaviors.put(6, new MovementBehavior(new Velocity(0.5, 0.72, 0.5, accelerationRange)));
-		behaviors.put(7, new MovementBehavior(new Velocity(0.5, 0.74, 0.5, accelerationRange)));
-		behaviors.put(8, new MovementBehavior(new Velocity(0.5, 0.76, 0.5, accelerationRange)));
+		behaviors.put(0, new MovementBehavior(new Velocity(0.5, 0.6, 0.5, accelerationRange), race()));
+		behaviors.put(1, new MovementBehavior(new Velocity(0.5, 0.62, 0.5, accelerationRange), race()));
+		behaviors.put(2, new MovementBehavior(new Velocity(0.5, 0.64, 0.5, accelerationRange), race()));
+		behaviors.put(3, new MovementBehavior(new Velocity(0.5, 0.66, 0.5, accelerationRange), race()));
+		behaviors.put(4, new MovementBehavior(new Velocity(0.5, 0.68, 0.5, accelerationRange), race()));
+		behaviors.put(5, new MovementBehavior(new Velocity(0.5, 0.7, 0.5, accelerationRange), race()));
+		behaviors.put(6, new MovementBehavior(new Velocity(0.5, 0.72, 0.5, accelerationRange), race()));
+		behaviors.put(7, new MovementBehavior(new Velocity(0.5, 0.74, 0.5, accelerationRange), race()));
+		behaviors.put(8, new MovementBehavior(new Velocity(0.5, 0.76, 0.5, accelerationRange), race()));
 		
 		return behaviors;
 	}

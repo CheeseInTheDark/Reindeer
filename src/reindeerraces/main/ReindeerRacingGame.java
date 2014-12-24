@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import org.springframework.stereotype.Component;
 
 import reindeerraces.reindeer.Reindeers;
+import reindeerraces.updateloop.UpdaterThread;
 
 @Component
 public class ReindeerRacingGame

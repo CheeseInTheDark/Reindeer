@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import reindeerraces.reindeer.Reindeers;
+import reindeerraces.updateloop.UpdaterThread;
 
 
 public class ReindeerRacingGameTest

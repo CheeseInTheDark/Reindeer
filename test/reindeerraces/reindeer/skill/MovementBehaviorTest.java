@@ -1,6 +1,8 @@
 package reindeerraces.reindeer.skill;
 
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.when;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -9,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import reindeerraces.reindeer.Distance;
+import reindeerraces.reindeer.Race;
 
 public class MovementBehaviorTest
 {
@@ -21,10 +24,15 @@ public class MovementBehaviorTest
 	@Mock
 	private Velocity velocity;
 	
+	@Mock
+	private Race race;
+	
 	@Before
 	public void setup()
 	{
 		MockitoAnnotations.initMocks(this);
+		
+		when(race.isInProgress()).thenReturn(true);
 	}
 	
 	@Test
@@ -41,5 +49,15 @@ public class MovementBehaviorTest
 		underTest.updateDistance(distance);
 		
 		verify(velocity).update();
+	}
+	
+	@Test
+	public void shouldNotUpdateAnythingIfRaceHasNotStarted()
+	{
+		when(race.isInProgress()).thenReturn(false);
+		
+		underTest.updateDistance(distance);
+		
+		verifyZeroInteractions(velocity);
 	}
 }

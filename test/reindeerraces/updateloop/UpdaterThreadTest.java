@@ -1,4 +1,4 @@
-package reindeerraces.main;
+package reindeerraces.updateloop;
 
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.doNothing;
@@ -14,8 +14,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import reindeerraces.guicomponents.TopDownTrackView;
+import reindeerraces.main.StopThreadAnswer;
 import reindeerraces.reindeer.Reindeers;
-import reindeerraces.updateloop.FrameTimer;
 
 public class UpdaterThreadTest
 {

@@ -1,7 +1,5 @@
 package reindeerraces.guicomponents;
 
-import java.awt.Dimension;
-
 import javax.annotation.Resource;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,8 +12,8 @@ public class GameWindow extends JFrame
 {
 	private static final long serialVersionUID = 1783078910378076898L;
 	
-	@Resource(name="topDownTrackView")
-	private JPanel topDownView;
+	@Resource(name="gameView")
+	private JPanel gameView;
 	
 	@Autowired
 	public void configureGameWindow()
@@ -29,7 +27,7 @@ public class GameWindow extends JFrame
 	
 	private void setUpTopDownView()
 	{
-		getContentPane().add(topDownView);
-		getContentPane().setPreferredSize(new Dimension(600, 260));
+		getContentPane().add(gameView);
+		getContentPane().setPreferredSize(gameView.getPreferredSize());
 	}
 }

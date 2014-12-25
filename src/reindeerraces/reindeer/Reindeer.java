@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 import reindeerraces.draw.Renderer;
-import reindeerraces.reindeer.skill.MovementBehavior;
+import reindeerraces.reindeer.skill.Skill;
 import reindeerraces.track.TrackLocationMapping;
 
 public class Reindeer 
@@ -18,19 +18,19 @@ public class Reindeer
 	
 	private TrackLocationMapping mapping;
 	
-	private ReindeerName reindeerName;
+	private Skill skillLevel;
 	
-	private MovementBehavior movementBehavior;
+	private ReindeerData data;
 	
 	public Reindeer(BufferedImage reindeerAppearance,
 			RaceTrackLocation location, 
 			TrackLocationMapping topDownMapping, 
-			ReindeerName reindeerName)
+			ReindeerData reindeerData)
 	{
 		this.appearance = reindeerAppearance;
 		this.location = location;
 		this.mapping = topDownMapping;
-		this.reindeerName = reindeerName;
+		this.data = reindeerData;
 	} 
 	
 	public void drawOn(Graphics canvas)
@@ -40,23 +40,19 @@ public class Reindeer
 		renderer.draw(appearance).on(canvas).at(mappedLocation);
 	}
 
-	public ReindeerName getReindeerName()
-	{
-		return reindeerName;
-	}
-
-	public void setReindeerName(ReindeerName reindeerName)
-	{
-		this.reindeerName = reindeerName;
-	}
-
 	public void update()
 	{
-		location.moveUsing(movementBehavior);
+		skillLevel.update(location);
 	}
 
-	public void setMovementBehavior(MovementBehavior reindeerMovement)
+	public void setSkill(Skill skill)
 	{
-		this.movementBehavior = reindeerMovement;
+		this.skillLevel = skill;
+		this.data.setSkill(skill);
+	}
+
+	public ReindeerData getData()
+	{
+		return data;
 	}
 }

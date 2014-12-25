@@ -18,7 +18,7 @@ import org.mockito.MockitoAnnotations;
 import reindeerraces.draw.Renderer;
 import reindeerraces.draw.Renderer.RendererNeedingCanvas;
 import reindeerraces.draw.Renderer.RendererNeedingLocation;
-import reindeerraces.reindeer.skill.MovementBehavior;
+import reindeerraces.reindeer.skill.Skill;
 import reindeerraces.track.TrackLocationMapping;
 
 
@@ -55,14 +55,20 @@ public class ReindeerTest
 	private RendererNeedingLocation rendererNeedingLocation;
 
 	@Mock
-	private MovementBehavior movementBehavior;
+	private ReindeerData expectedData;
+	
+	@Mock
+	private Skill skill;
+	
+	@Mock
+	private Skill anotherSkill;
 	
 	@Before
 	public void setup()
 	{
 		MockitoAnnotations.initMocks(this);
 		
-		underTest.setMovementBehavior(movementBehavior);
+		underTest.setSkill(skill);
 		
 		when(location.mapTo(mapping)).thenReturn(mappedLocation);
 		
@@ -86,26 +92,29 @@ public class ReindeerTest
 	}
 	
 	@Test
-	public void shouldHaveReindeerName()
-	{
-		assertThat(underTest.getReindeerName(), is(name));
-	}
-	
-	@Test
-	public void shouldSetReindeerName()
-	{
-		ReindeerName nameToUse = new ReindeerName("Bob");
-		
-		underTest.setReindeerName(nameToUse);
-		
-		assertThat(underTest.getReindeerName(), is(nameToUse));
-	}
-	
-	@Test
 	public void shouldUpdateLocation()
 	{
 		underTest.update();
 		
-		verify(location).moveUsing(movementBehavior);
+		verify(skill).update(location);
+	}
+	
+	@Test
+	public void shouldReturnReindeerData()
+	{
+		ReindeerData data = underTest.getData();
+		
+		assertThat(data, is(expectedData));
+	}
+	
+	@Test
+	public void shouldSetSkill()
+	{
+		underTest.setSkill(anotherSkill);
+		
+		underTest.update();
+		
+		verify(anotherSkill).update(location);
+		verify(expectedData).setSkill(anotherSkill);
 	}
 }

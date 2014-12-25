@@ -15,8 +15,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
-import reindeerraces.reindeer.skill.MovementBehavior;
-import reindeerraces.reindeer.skill.MovementBehaviorFactory;
+import reindeerraces.reindeer.skill.Skill;
+import reindeerraces.reindeer.skill.SkillFactory;
 
 
 public class ReindeersTest
@@ -31,13 +31,13 @@ public class ReindeersTest
 	private Reindeer anotherReindeer;
 	
 	@Mock
-	private MovementBehavior reindeerMovement;
+	private Skill reindeerMovement;
 	
 	@Mock
-	private MovementBehavior anotherReindeerMovement;
+	private Skill anotherReindeerMovement;
 	
 	@Mock
-	private MovementBehaviorFactory behaviorFactory;
+	private SkillFactory behaviorFactory;
 	
 	@Spy
 	private List<Reindeer> reindeerList = new ArrayList<Reindeer>();
@@ -79,7 +79,7 @@ public class ReindeersTest
 		
 		underTest.scrambleReindeerOdds();
 		
-		verify(reindeer).setMovementBehavior(reindeerMovement);
-		verify(anotherReindeer).setMovementBehavior(anotherReindeerMovement);
+		verify(reindeer).setSkill(reindeerMovement);
+		verify(anotherReindeer).setSkill(anotherReindeerMovement);
 	}
 }

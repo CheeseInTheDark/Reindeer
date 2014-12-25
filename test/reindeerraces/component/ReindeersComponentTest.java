@@ -19,7 +19,7 @@ import reindeerraces.reindeer.Reindeers;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes={TestReindeerConfiguration.class})
-public class ReindeerComponentTest
+public class ReindeersComponentTest
 {
 	@Resource
 	private Reindeers underTest;

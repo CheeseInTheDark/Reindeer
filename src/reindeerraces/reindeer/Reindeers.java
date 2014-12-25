@@ -3,19 +3,19 @@ package reindeerraces.reindeer;
 import java.awt.Graphics;
 import java.util.List;
 
-import reindeerraces.reindeer.skill.MovementBehavior;
-import reindeerraces.reindeer.skill.MovementBehaviorFactory;
+import reindeerraces.reindeer.skill.Skill;
+import reindeerraces.reindeer.skill.SkillFactory;
 
 public class Reindeers
 {
 	private List<Reindeer> reindeerList;
 	
-	private MovementBehaviorFactory movementBehaviorFactory;
+	private SkillFactory skillFactory;
 	
-	public Reindeers(List<Reindeer> reindeerList, MovementBehaviorFactory behaviorFactory)
+	public Reindeers(List<Reindeer> reindeerList, SkillFactory behaviorFactory)
 	{
 		this.reindeerList = reindeerList;
-		this.movementBehaviorFactory = behaviorFactory;
+		this.skillFactory = behaviorFactory;
 	}
 
 	public void drawOn(Graphics canvas)
@@ -36,11 +36,11 @@ public class Reindeers
 
 	public void scrambleReindeerOdds()
 	{
-		List<MovementBehavior> behaviors = movementBehaviorFactory.generate(reindeerList.size());
+		List<Skill> skills = skillFactory.generate(reindeerList.size());
 		
-		for (int reindeer = 0; reindeer < reindeerList.size(); reindeer++)
+		for (int index = 0; index < reindeerList.size(); index++)
 	    {
-			reindeerList.get(reindeer).setMovementBehavior(behaviors.get(reindeer));
+			reindeerList.get(index).setSkill(skills.get(index));
 		}
 	}
 

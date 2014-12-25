@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,6 +31,9 @@ public class GameWindowComponentTest
 	
 	@Resource(name="startRace")
 	private JButton startRaceButton;
+	
+	@Resource(name="reindeerInfo")
+	private JScrollPane reindeerInfo;
 	
 	@Test
 	public void shouldHaveGameView()
@@ -59,5 +63,11 @@ public class GameWindowComponentTest
 	public void shouldHaveStartRaceButtonAsSubComponent()
 	{
 		assertThat(gameView.getComponent(1), is(startRaceButton));
+	}
+	
+	@Test
+	public void shouldHaveOddsAsSubComponent()
+	{
+		assertThat(gameView.getComponent(2), is(reindeerInfo));
 	}
 }

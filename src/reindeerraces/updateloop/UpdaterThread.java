@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
 
+import reindeerraces.guicomponents.ReindeerTableModel;
 import reindeerraces.guicomponents.TopDownTrackView;
 import reindeerraces.reindeer.Reindeers;
 
@@ -15,6 +16,9 @@ public class UpdaterThread extends Thread
 
 	@Resource
 	private TopDownTrackView trackView;
+	
+	@Resource
+	private ReindeerTableModel data;
 	
 	private FrameTimer frameTimer = new FrameTimer(12500000L);
 	

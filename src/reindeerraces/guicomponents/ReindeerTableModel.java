@@ -69,10 +69,4 @@ public class ReindeerTableModel extends AbstractTableModel
 	{
 		return false;
 	}
-
-	public void setValueAt(Object value, int row, int col)
-	{
-		fireTableCellUpdated(row, col);
-	}
-
 }

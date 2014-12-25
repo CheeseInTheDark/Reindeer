@@ -29,11 +29,15 @@ public class Reindeer
 	public Reindeer(BufferedImage reindeerAppearance,
 			RaceTrackLocation location, 
 			TrackLocationMapping topDownMapping, 
+			Race race,
+			FinishPosition finishPosition,
 			ReindeerData reindeerData)
 	{
 		this.appearance = reindeerAppearance;
 		this.location = location;
 		this.mapping = topDownMapping;
+		this.race = race;
+		this.position = finishPosition;
 		this.data = reindeerData;
 	} 
 	

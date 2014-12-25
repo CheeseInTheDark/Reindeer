@@ -139,70 +139,106 @@ public class ReindeerConfiguration
 		return new TopDownMapping();
 	}
 	
+	@Bean(name="bluePosition")
+	public FinishPosition bluePosition()
+	{
+		return new FinishPosition();
+	}
+	
+	@Bean(name="greenPosition")
+	public FinishPosition greenPosition()
+	{
+		return new FinishPosition();
+	}
+	
+	@Bean(name="pinkPosition")
+	public FinishPosition pinkPosition()
+	{
+		return new FinishPosition();
+	}
+	
+	@Bean(name="purplePosition")
+	public FinishPosition purplePosition()
+	{
+		return new FinishPosition();
+	}
+	
+	@Bean(name="redPosition")
+	public FinishPosition redPosition()
+	{
+		return new FinishPosition();
+	}
+	
+	@Bean(name="yellowPosition")
+	public FinishPosition yellowPosition()
+	{
+		return new FinishPosition();
+	}
+	
 	@Bean(name="blueReindeer")
 	public Reindeer createBlue() throws IOException
 	{
-		return new Reindeer(blueReindeer(), location(-126, 2), topDownMapping(), blueReindeerData());
+		return new Reindeer(blueReindeer(), location(-126, 2), topDownMapping(), race, bluePosition(), blueReindeerData());
 	}
  
 	public ReindeerData blueReindeerData() throws IOException
 	{
-		return new ReindeerData(reindeerNameBlue, new ImageIcon(blueReindeer()), null, new FinishPosition());
+		return new ReindeerData(reindeerNameBlue, new ImageIcon(blueReindeer()), null, bluePosition());
 	}
 	
 	@Bean(name="greenReindeer")
 	public Reindeer createGreen() throws IOException
 	{
-		return new Reindeer(greenReindeer(), location(-101, 6), topDownMapping(), greenReindeerData());
+		return new Reindeer(greenReindeer(), location(-101, 6), topDownMapping(), race, greenPosition(), greenReindeerData());
 	}
  
 	public ReindeerData greenReindeerData() throws IOException
 	{
-		return new ReindeerData(reindeerNameGreen, new ImageIcon(greenReindeer()), null, new FinishPosition());
+		return new ReindeerData(reindeerNameGreen, new ImageIcon(greenReindeer()), null, greenPosition());
 	}
 	
 	@Bean(name="pinkReindeer")
 	public Reindeer createPink() throws IOException
 	{
-		return new Reindeer(pinkReindeer(), location(-75, 10), topDownMapping(), pinkReindeerData());
+		return new Reindeer(pinkReindeer(), location(-75, 10), topDownMapping(), race, pinkPosition(), pinkReindeerData());
 	}
  
 	public ReindeerData pinkReindeerData() throws IOException
 	{
-		return new ReindeerData(reindeerNamePink, new ImageIcon(pinkReindeer()), null, new FinishPosition());
+		return new ReindeerData(reindeerNamePink, new ImageIcon(pinkReindeer()), null, pinkPosition());
 	}
 	
 	@Bean(name="purpleReindeer")
 	public Reindeer createPurple() throws IOException
 	{
-		return new Reindeer(purpleReindeer(), location(-50, 14), topDownMapping(), purpleReindeerData());
+		return new Reindeer(purpleReindeer(), location(-50, 14), topDownMapping(), race, purplePosition(), purpleReindeerData());
 	} 
 	
 	public ReindeerData purpleReindeerData() throws IOException
 	{
-		return new ReindeerData(reindeerNamePurple, new ImageIcon(purpleReindeer()), null, new FinishPosition());
+		return new ReindeerData(reindeerNamePurple, new ImageIcon(purpleReindeer()), null, purplePosition());
 	}
 	
 	@Bean(name="redReindeer")
 	public Reindeer createRed() throws IOException
 	{
-		return new Reindeer(redReindeer(), location(-25, 18), topDownMapping(), redReindeerData());
+		return new Reindeer(redReindeer(), location(-25, 18), topDownMapping(), race, redPosition(), redReindeerData());
 	}
 	
 	public ReindeerData redReindeerData() throws IOException
 	{
-		return new ReindeerData(reindeerNameRed, new ImageIcon(redReindeer()), null, new FinishPosition());
+		return new ReindeerData(reindeerNameRed, new ImageIcon(redReindeer()), null, redPosition());
 	} 
 	
 	@Bean(name="yellowReindeer")
 	public Reindeer createYellow() throws IOException
 	{
-		return new Reindeer(yellowReindeer(), location(0, 22), topDownMapping(), yellowReindeerData());
+		return new Reindeer(yellowReindeer(), location(0, 22), topDownMapping(), race, yellowPosition(), yellowReindeerData());
 	}
 	
 	public ReindeerData yellowReindeerData() throws IOException
 	{
-		return new ReindeerData(reindeerNameYellow, new ImageIcon(yellowReindeer()), null, new FinishPosition());
+		return new ReindeerData(reindeerNameYellow, new ImageIcon(yellowReindeer()), null, yellowPosition());
 	} 
 	
 	public RaceTrackLocation location(int distance, int lane)

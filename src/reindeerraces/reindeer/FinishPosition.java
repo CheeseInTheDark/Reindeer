@@ -2,14 +2,16 @@ package reindeerraces.reindeer;
 
 public class FinishPosition
 {
+	private String value;
 
-	public Object getValue()
+	public String getValue()
 	{
-		return null;
+		return value;
 	}
 
-	public void setValue(int i)
+	public void setValue(int value)
 	{
+		this.value = Integer.toString(value);
 	}
 
 }

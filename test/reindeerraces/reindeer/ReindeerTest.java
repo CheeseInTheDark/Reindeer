@@ -2,6 +2,7 @@ package reindeerraces.reindeer;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
@@ -26,7 +27,7 @@ import reindeerraces.track.TrackLocationMapping;
 public class ReindeerTest
 {
 	@InjectMocks
-	private Reindeer underTest = new Reindeer(null, null, null, null);
+	private Reindeer underTest = new Reindeer(null, null, null, null, null, null);
 	
 	@Mock
 	private ReindeerName name;
@@ -143,5 +144,17 @@ public class ReindeerTest
 		underTest.update();
 		
 		verifyZeroInteractions(race);
+	}
+	
+	@Test
+	public void shouldNotUpdateAfterFinishing()
+	{
+		when(location.isPastFinishLine()).thenReturn(true);
+		
+		underTest.update();
+		underTest.update();
+		
+		verify(skill, times(1)).update(location);
+		verify(race, times(1)).claimPosition(position);
 	}
 }

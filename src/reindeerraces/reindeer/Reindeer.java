@@ -26,6 +26,8 @@ public class Reindeer
 	
 	private FinishPosition position;
 	
+	private boolean finished = false;
+	
 	public Reindeer(BufferedImage reindeerAppearance,
 			RaceTrackLocation location, 
 			TrackLocationMapping topDownMapping, 
@@ -50,11 +52,15 @@ public class Reindeer
 
 	public void update()
 	{
-		skillLevel.update(location);
-		
-		if (location.isPastFinishLine())
+		if (!finished)
 		{
-			race.claimPosition(position);
+			skillLevel.update(location);
+			
+			if (location.isPastFinishLine())
+			{
+				race.claimPosition(position);
+				finished = true;
+			}
 		}
 	}
 

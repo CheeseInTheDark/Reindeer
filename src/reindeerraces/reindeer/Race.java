@@ -3,7 +3,11 @@ package reindeerraces.reindeer;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Component;
+
+import reindeerraces.guicomponents.ReindeerTableModel;
 
 @Component
 public class Race implements MouseListener
@@ -13,6 +17,9 @@ public class Race implements MouseListener
 	private int nextPosition = 1;
 	
 	private int racers = 6;
+	
+	@Resource
+	private ReindeerTableModel model;
 	
 	public void start()
 	{
@@ -29,6 +36,8 @@ public class Race implements MouseListener
 		position.setValue(nextPosition);
 		nextPosition++;
 		
+		model.fireTableDataChanged();
+
 		if (nextPosition > racers)
 		{
 			active = false;

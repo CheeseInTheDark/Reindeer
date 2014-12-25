@@ -1,5 +1,6 @@
 package reindeerraces.configuration;
 
+import static java.lang.Math.PI;
 import static java.util.Arrays.asList;
 
 import java.awt.image.BufferedImage;
@@ -14,6 +15,7 @@ import javax.swing.ImageIcon;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import reindeerraces.reindeer.Distance;
 import reindeerraces.reindeer.FinishPosition;
@@ -28,14 +30,19 @@ import reindeerraces.reindeer.skill.MovementBehavior;
 import reindeerraces.reindeer.skill.RandomRange;
 import reindeerraces.reindeer.skill.SkillFactory;
 import reindeerraces.reindeer.skill.Velocity;
+import reindeerraces.track.FinishLine;
 import reindeerraces.track.TopDownMapping;
+import reindeerraces.track.functions.LinearFunction;
 
 @Configuration
+@Component
 public class ReindeerConfiguration
 {
-	
-	@Resource
-	private Race race;
+	@Bean
+	public Race race()
+	{
+		return new Race();
+	}
 	
 	@Bean(name="skillPointsMapping")
 	public Map<Integer, MovementBehavior> movementMap()
@@ -44,15 +51,15 @@ public class ReindeerConfiguration
 		
 		RandomRange accelerationRange = new RandomRange(new Random(), -0.001, 0.001);
 		
-		behaviors.put(0, new MovementBehavior(new Velocity(0.5, 0.6, 0.5, accelerationRange), race));
-		behaviors.put(1, new MovementBehavior(new Velocity(0.5, 0.62, 0.5, accelerationRange), race));
-		behaviors.put(2, new MovementBehavior(new Velocity(0.5, 0.64, 0.5, accelerationRange), race));
-		behaviors.put(3, new MovementBehavior(new Velocity(0.5, 0.66, 0.5, accelerationRange), race));
-		behaviors.put(4, new MovementBehavior(new Velocity(0.5, 0.68, 0.5, accelerationRange), race));
-		behaviors.put(5, new MovementBehavior(new Velocity(0.5, 0.7, 0.5, accelerationRange), race));
-		behaviors.put(6, new MovementBehavior(new Velocity(0.5, 0.72, 0.5, accelerationRange), race));
-		behaviors.put(7, new MovementBehavior(new Velocity(0.5, 0.74, 0.5, accelerationRange), race));
-		behaviors.put(8, new MovementBehavior(new Velocity(0.5, 0.76, 0.5, accelerationRange), race));
+		behaviors.put(0, new MovementBehavior(new Velocity(0.42, 0.6, 0.5, accelerationRange), race()));
+		behaviors.put(1, new MovementBehavior(new Velocity(0.43, 0.63, 0.5, accelerationRange), race()));
+		behaviors.put(2, new MovementBehavior(new Velocity(0.44, 0.66, 0.5, accelerationRange), race()));
+		behaviors.put(3, new MovementBehavior(new Velocity(0.45, 0.69, 0.5, accelerationRange), race()));
+		behaviors.put(4, new MovementBehavior(new Velocity(0.46, 0.72, 0.5, accelerationRange), race()));
+		behaviors.put(5, new MovementBehavior(new Velocity(0.47, 0.75, 0.5, accelerationRange), race()));
+		behaviors.put(6, new MovementBehavior(new Velocity(0.48, 0.78, 0.5, accelerationRange), race()));
+		behaviors.put(7, new MovementBehavior(new Velocity(0.49, 0.81, 0.5, accelerationRange), race()));
+		behaviors.put(8, new MovementBehavior(new Velocity(0.5, 0.84, 0.5, accelerationRange), race()));
 		
 		return behaviors;
 	}
@@ -178,7 +185,7 @@ public class ReindeerConfiguration
 	@Bean(name="blueReindeer")
 	public Reindeer createBlue() throws IOException
 	{
-		return new Reindeer(blueReindeer(), location(-126, 2), topDownMapping(), race, bluePosition(), blueReindeerData());
+		return new Reindeer(blueReindeer(), location(-126, 2), topDownMapping(), race(), bluePosition(), blueReindeerData());
 	}
  
 	public ReindeerData blueReindeerData() throws IOException
@@ -189,7 +196,7 @@ public class ReindeerConfiguration
 	@Bean(name="greenReindeer")
 	public Reindeer createGreen() throws IOException
 	{
-		return new Reindeer(greenReindeer(), location(-101, 6), topDownMapping(), race, greenPosition(), greenReindeerData());
+		return new Reindeer(greenReindeer(), location(-101, 6), topDownMapping(), race(), greenPosition(), greenReindeerData());
 	}
  
 	public ReindeerData greenReindeerData() throws IOException
@@ -200,7 +207,7 @@ public class ReindeerConfiguration
 	@Bean(name="pinkReindeer")
 	public Reindeer createPink() throws IOException
 	{
-		return new Reindeer(pinkReindeer(), location(-75, 10), topDownMapping(), race, pinkPosition(), pinkReindeerData());
+		return new Reindeer(pinkReindeer(), location(-75, 10), topDownMapping(), race(), pinkPosition(), pinkReindeerData());
 	}
  
 	public ReindeerData pinkReindeerData() throws IOException
@@ -211,7 +218,7 @@ public class ReindeerConfiguration
 	@Bean(name="purpleReindeer")
 	public Reindeer createPurple() throws IOException
 	{
-		return new Reindeer(purpleReindeer(), location(-50, 14), topDownMapping(), race, purplePosition(), purpleReindeerData());
+		return new Reindeer(purpleReindeer(), location(-50, 14), topDownMapping(), race(), purplePosition(), purpleReindeerData());
 	} 
 	
 	public ReindeerData purpleReindeerData() throws IOException
@@ -222,7 +229,7 @@ public class ReindeerConfiguration
 	@Bean(name="redReindeer")
 	public Reindeer createRed() throws IOException
 	{
-		return new Reindeer(redReindeer(), location(-25, 18), topDownMapping(), race, redPosition(), redReindeerData());
+		return new Reindeer(redReindeer(), location(-25, 18), topDownMapping(), race(), redPosition(), redReindeerData());
 	}
 	
 	public ReindeerData redReindeerData() throws IOException
@@ -233,7 +240,7 @@ public class ReindeerConfiguration
 	@Bean(name="yellowReindeer")
 	public Reindeer createYellow() throws IOException
 	{
-		return new Reindeer(yellowReindeer(), location(0, 22), topDownMapping(), race, yellowPosition(), yellowReindeerData());
+		return new Reindeer(yellowReindeer(), location(0, 22), topDownMapping(), race(), yellowPosition(), yellowReindeerData());
 	}
 	
 	public ReindeerData yellowReindeerData() throws IOException
@@ -243,6 +250,12 @@ public class ReindeerConfiguration
 	
 	public RaceTrackLocation location(int distance, int lane)
 	{
-		return new RaceTrackLocation(new Distance(distance), new Lane(lane));
+		return new RaceTrackLocation(new Distance(distance), new Lane(lane), finishLine());
+	}
+	
+	@Bean
+	public FinishLine finishLine()
+	{
+		return new FinishLine(new LinearFunction(945.017672706, PI * 2));
 	}
 }

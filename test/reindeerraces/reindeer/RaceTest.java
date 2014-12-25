@@ -6,8 +6,11 @@ import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
+import reindeerraces.guicomponents.ReindeerTableModel;
 
 
 public class RaceTest
@@ -15,7 +18,11 @@ public class RaceTest
 	@Mock
 	private FinishPosition position;
 	
-	private Race underTest = new Race();
+	@Mock
+	private ReindeerTableModel model;
+	
+	@InjectMocks
+	private Race underTest;
 	
 	@Before
 	public void setup()
@@ -37,6 +44,14 @@ public class RaceTest
 		underTest.mouseClicked(null);
 		
 		assertThat(underTest.isInProgress(), is(true));
+	}
+	
+	@Test
+	public void shouldUpdateTableWhenPositionIsClaimed()
+	{
+		underTest.claimPosition(position);
+		
+		verify(model).fireTableDataChanged();
 	}
 	
 	@Test

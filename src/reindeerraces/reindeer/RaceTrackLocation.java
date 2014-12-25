@@ -3,6 +3,7 @@ package reindeerraces.reindeer;
 import java.awt.Dimension;
 
 import reindeerraces.reindeer.skill.MovementBehavior;
+import reindeerraces.track.FinishLine;
 import reindeerraces.track.TrackLocationMapping;
 
 public class RaceTrackLocation
@@ -11,10 +12,13 @@ public class RaceTrackLocation
 	
 	private Distance distance;
 	
-	public RaceTrackLocation(Distance distance, Lane lane)
+	private FinishLine finish;
+	
+	public RaceTrackLocation(Distance distance, Lane lane, FinishLine finish)
 	{
 		this.distance = distance;
 		this.lane = lane;
+		this.finish = finish;
 	}
 
 	public Dimension mapTo(TrackLocationMapping locationMapper)
@@ -29,6 +33,6 @@ public class RaceTrackLocation
 
 	public boolean isPastFinishLine()
 	{
-		return false;
+		return finish.crossedBy(distance, lane);
 	}
 }

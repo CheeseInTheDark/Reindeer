@@ -13,7 +13,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import reindeerraces.configuration.ReindeerLauncherConfiguration;
 import reindeerraces.reindeer.Reindeer;
-import reindeerraces.reindeer.Reindeers;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes={ReindeerLauncherConfiguration.class})

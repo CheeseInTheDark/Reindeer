@@ -51,14 +51,14 @@ public class ReindeerConfiguration
 		
 		RandomRange accelerationRange = new RandomRange(new Random(), -0.001, 0.001);
 		
-		behaviors.put(0, new MovementBehavior(new Velocity(0.42, 0.6, 0.5, accelerationRange), race()));
-		behaviors.put(1, new MovementBehavior(new Velocity(0.43, 0.63, 0.5, accelerationRange), race()));
-		behaviors.put(2, new MovementBehavior(new Velocity(0.44, 0.66, 0.5, accelerationRange), race()));
-		behaviors.put(3, new MovementBehavior(new Velocity(0.45, 0.69, 0.5, accelerationRange), race()));
-		behaviors.put(4, new MovementBehavior(new Velocity(0.46, 0.72, 0.5, accelerationRange), race()));
-		behaviors.put(5, new MovementBehavior(new Velocity(0.47, 0.75, 0.5, accelerationRange), race()));
-		behaviors.put(6, new MovementBehavior(new Velocity(0.48, 0.78, 0.5, accelerationRange), race()));
-		behaviors.put(7, new MovementBehavior(new Velocity(0.49, 0.81, 0.5, accelerationRange), race()));
+		behaviors.put(0, new MovementBehavior(new Velocity(0.42, 0.6, 0.46, accelerationRange), race()));
+		behaviors.put(1, new MovementBehavior(new Velocity(0.43, 0.63, 0.465, accelerationRange), race()));
+		behaviors.put(2, new MovementBehavior(new Velocity(0.44, 0.66, 0.47, accelerationRange), race()));
+		behaviors.put(3, new MovementBehavior(new Velocity(0.45, 0.69, 0.475, accelerationRange), race()));
+		behaviors.put(4, new MovementBehavior(new Velocity(0.46, 0.72, 0.48, accelerationRange), race()));
+		behaviors.put(5, new MovementBehavior(new Velocity(0.47, 0.75, 0.485, accelerationRange), race()));
+		behaviors.put(6, new MovementBehavior(new Velocity(0.48, 0.78, 0.49, accelerationRange), race()));
+		behaviors.put(7, new MovementBehavior(new Velocity(0.49, 0.81, 0.495, accelerationRange), race()));
 		behaviors.put(8, new MovementBehavior(new Velocity(0.5, 0.84, 0.5, accelerationRange), race()));
 		
 		return behaviors;

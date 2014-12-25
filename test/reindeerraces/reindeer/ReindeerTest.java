@@ -3,6 +3,7 @@ package reindeerraces.reindeer;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
 import java.awt.Dimension;
@@ -63,6 +64,12 @@ public class ReindeerTest
 	@Mock
 	private Skill anotherSkill;
 	
+	@Mock
+	private Race race;
+	
+	@Mock
+	private FinishPosition position;
+	
 	@Before
 	public void setup()
 	{
@@ -116,5 +123,25 @@ public class ReindeerTest
 		
 		verify(anotherSkill).update(location);
 		verify(expectedData).setSkill(anotherSkill);
+	}
+	
+	@Test
+	public void shouldFinish()
+	{
+		when(location.isPastFinishLine()).thenReturn(true);
+		
+		underTest.update();
+		
+		verify(race).claimPosition(position);
+	}
+	
+	@Test
+	public void shouldNotFinish()
+	{
+		when(location.isPastFinishLine()).thenReturn(false);
+		
+		underTest.update();
+		
+		verifyZeroInteractions(race);
 	}
 }

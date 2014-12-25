@@ -26,4 +26,9 @@ public class RaceTrackLocation
 	{
 		movementBehavior.updateDistance(distance);
 	}
+
+	public boolean isPastFinishLine()
+	{
+		return false;
+	}
 }

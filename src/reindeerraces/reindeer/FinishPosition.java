@@ -8,4 +8,8 @@ public class FinishPosition
 		return null;
 	}
 
+	public void setValue(int i)
+	{
+	}
+
 }
